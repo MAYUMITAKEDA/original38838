@@ -24,8 +24,8 @@
   </div>
 
   <div class="field">
-    <%= f.label :profile, "プロフィール" %><br />
-    <%= f.text_area :profile, class: :form_text %>
+    <%= f.label :profile, "プロフィール(150字まで)" %><br />
+    <%= f.text_area :profile, class: :form_text ,maxlength:"1000" %>
   </div>
 
   <div class="actions">
