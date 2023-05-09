@@ -20,9 +20,10 @@ has_many: likes
 | -------------------- | ---------- | ------------------------------ |
 | title                | string     | null: false                    |
 | text                 | text       | null: false                    |
+| cost                 | integer    | null: false                    |
 | category_id          | integer    | null: false                    |
-| time_id              | integer    | null: false                    |
 | budget_id            | integer    | null: false                    |
+| opening_hour_id      | integer    | null: false                    |
 | user                 | references | null: false, foreign_key: true |
 
 ## Associations
