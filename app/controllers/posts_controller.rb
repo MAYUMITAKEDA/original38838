@@ -1,12 +1,7 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :edit, :destroy]
-<<<<<<< Updated upstream
-  before_action :set_post, only: [:show, :edit, :update]
-
-=======
   before_action :set_post, only: [:show, :edit, :update, :move_to_index]
   before_action :move_to_index, only: :edit
->>>>>>> Stashed changes
   def index
     @posts = Post.all.order(created_at: :desc)
   end
