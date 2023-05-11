@@ -4,7 +4,7 @@
   <%#ポストの投稿者とログインユーザーが同一の場合は「編集」「削除」ボタンが表示される%>
   <div class="post__manage">
     <% if user_signed_in? && current_user.id == @post.user_id %>
-      <%= link_to "編集", "#", class: :post__btn %>
+      <%= link_to "編集", edit_post_path(@post.id), class: :post__btn %>
       <%= link_to "削除", "#", class: :post__btn %>
      <% end %>
   </div>
