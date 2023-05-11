@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :edit, :destroy]
+  before_action :set_post, only: [:show, :edit, :update]
   def index
     @posts = Post.all.order(created_at: :desc)
   end
@@ -9,7 +10,7 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.create(post_params)
+    @post = Post.new(post_params)
     if @post.save
       redirect_to root_path      
     else
@@ -17,6 +18,20 @@ class PostsController < ApplicationController
     end
   end
 
+  def show
+    
+  end
+
+  def edit
+  end
+
+  def update
+    if @post.update(params[:id])
+      redirect_to post_path
+    else
+      render :edit
+    end
+  end
   
 
   private
