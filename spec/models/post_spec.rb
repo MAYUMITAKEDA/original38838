@@ -86,3 +86,8 @@ RSpec.describe Post, type: :model do
     end
   end
 end
+<<<<<<< Updated upstream
+=======
+
+
+>>>>>>> Stashed changes
