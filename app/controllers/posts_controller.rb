@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :edit, :destroy]
-  before_action :set_post, only: [:show, :edit, :update, :move_to_index]
-  before_action :move_to_index, only: :edit
+  before_action :set_post, only: [:show, :edit, :update, :destroy, :move_to_index]
+  before_action :move_to_index, only: [:edit, :destroy]
   def index
     @posts = Post.all.order(created_at: :desc)
   end
@@ -20,7 +20,6 @@ class PostsController < ApplicationController
   end
 
   def show
-    
   end
 
   def edit
@@ -34,6 +33,14 @@ class PostsController < ApplicationController
     end
   end
   
+  def destroy
+    if @post.destroy
+      redirect_to root_path
+    else
+      render :show
+    end
+  end
+
   private
 
   def post_params
