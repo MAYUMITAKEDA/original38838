@@ -1,1 +1,57 @@
-<h1>投稿内容詳細表示</h1>
+<h1>投稿内容詳細</h1>
+
+<div class="main">
+  <%#ポストの投稿者とログインユーザーが同一の場合は「編集」「削除」ボタンが表示される%>
+  <div class="post__manage">
+    <% if user_signed_in? && current_user.id == @post.user_id %>
+      <%= link_to "編集", "#", class: :post__btn %>
+      <%= link_to "削除", "#", class: :post__btn %>
+     <% end %>
+  </div>
+<%#// ポストの投稿者とログインユーザーが同一の場合は「編集」「削除」ボタンが表示される%>
+
+<%# 投稿内容詳細表示 %>
+  <div class="post_main">
+    <p class="post_main_title">
+      タイトル：<%= @post.title %>
+    </p>
+
+    <div class="post_main_detail">
+      <p class="post_main_category">
+        カテゴリー：<%= @post.category.name %>
+      </p>
+    </div>
+
+    <div class="post_main_detail">
+      <p class="post_main_budget">
+        予算：<%= @post.budget.name %>
+      </p>
+    </div>
+
+    <div class="post_main_detail">
+      <p class="post_main_opnening_hour">
+        営業時間：<%= @post.opening_hour.name %>
+      </p>
+    </div>
+
+    <div class="post_main_detail">
+      <p class="post_main_address">
+        住所：<%= @post.address %>
+      </p>
+    </div>
+
+    <div class="post_main_detail">
+      <p class="post_main_text">
+        文書：<%= @post.text %>
+      </p>
+    </div>
+
+
+    <div class="post_main_img">
+      <%= image_tag @post.image.variant(resize: '300x300') %>
+    </div>
+
+    <%= link_to 'Topへ戻る', root_path %>
+
+  </div>
+</div>

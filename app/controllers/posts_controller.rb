@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :edit, :destroy]
   before_action :set_post, only: [:show, :edit, :update]
+
   def index
     @posts = Post.all.order(created_at: :desc)
   end
@@ -33,7 +34,6 @@ class PostsController < ApplicationController
     end
   end
   
-
   private
 
   def post_params
