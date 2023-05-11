@@ -1,7 +1,12 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :edit, :destroy]
+<<<<<<< Updated upstream
   before_action :set_post, only: [:show, :edit, :update]
 
+=======
+  before_action :set_post, only: [:show, :edit, :update, :move_to_index]
+  before_action :move_to_index, only: :edit
+>>>>>>> Stashed changes
   def index
     @posts = Post.all.order(created_at: :desc)
   end
@@ -27,7 +32,7 @@ class PostsController < ApplicationController
   end
 
   def update
-    if @post.update(params[:id])
+    if @post.update(post_params)
       redirect_to post_path
     else
       render :edit
@@ -42,5 +47,11 @@ class PostsController < ApplicationController
 
   def set_post
     @post = Post.find(params[:id])
+  end
+
+  def move_to_index
+    return if current_user.id == @post.user_id
+
+    redirect_to root_path
   end
 end
