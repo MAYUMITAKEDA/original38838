@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-  def creeate
+  def create
     @comment = Comment.create(comment_params)
     if @comment.save
       redirect_to post_path(@comment.post)
