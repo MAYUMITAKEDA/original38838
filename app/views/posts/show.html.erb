@@ -46,10 +46,38 @@
       </p>
     </div>
 
-
     <div class="post_main_img">
       <%= image_tag @post.image.variant(resize: '300x300') %>
     </div>
+
+
+    <%#ログインユーザーの場合は以下のコメント入力フォームが表示される%>
+    <div class="post__comments">
+      <% if user_signed_in? %>
+        <%= form_with(model: [@post, @comment], local: true) do |f| %>
+          <div class="field">
+            <%= f.label :text, "コメントする" %><br />
+            <%= f.text_area :text %>
+          </div>
+          <div class="actions">
+            <%= f.submit "送信", class: :form__btn %>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+    <%#//ログインユーザーの場合は以下のコメント入力フォームが表示される%>
+
+    <%#投稿に紐づくコメント一覧を表示する%>
+    <div class="comments">
+      コメント一覧
+      <% @comments.each do |comment| %>
+        <p>
+          <strong><%= link_to comment.user.nickname, "user/#{comment.user_id}" %>:</strong>
+          <%= comment.text%>
+        </p>
+      <% end %>
+    </div>
+    <%#//投稿に紐づくコメント一覧を表示する%>
 
     <%= link_to 'Topへ戻る', root_path %>
 
