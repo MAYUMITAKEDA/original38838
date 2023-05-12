@@ -4,7 +4,7 @@ class Post < ApplicationRecord
   belongs_to :budget
   belongs_to :opening_hour
   belongs_to :user
-  has_many :comments
+  has_many :comments, dependent: :destroy
   has_one_attached :image
 
   with_options presence: true do
