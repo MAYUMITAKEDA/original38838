@@ -11,5 +11,5 @@ class User < ApplicationRecord
     validates :nickname
     validates :profile, length: { maximum: 150 }
   end
-  validates :password, format: { with: /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i, message: 'is invalid. Include both letters and numbers' }
+  validates :password, format: { with: /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i, message: 'is invalid. Include both letters and numbers' }, on: :create
 end
