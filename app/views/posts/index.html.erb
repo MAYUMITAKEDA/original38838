@@ -22,7 +22,7 @@
         </div>
       <% end %>
         <div class="post-user">
-        <%= link_to "投稿者:#{post.user.nickname}", '#', class: :post__user %>
+        <%= link_to "投稿者:#{post.user.nickname}", user_path(post.user), class: :post__user %>
         </div>
     </li>
   <% end %>
