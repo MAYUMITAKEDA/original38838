@@ -1,6 +1,6 @@
 <h1>投稿内容編集画面</h1>
 
-<%= form_with(model: @post, local:true) do |f| %>
+    <%= form_with model: @post_form, url: post_path(@post.id), method: :patch, id: 'edit-post', local: true do |f| %>
       <%= render "shared/error_messages", model: f.object %>
       
       <div class="select-name">
