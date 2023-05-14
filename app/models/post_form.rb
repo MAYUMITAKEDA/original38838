@@ -5,7 +5,7 @@ class PostForm
     :title, :text, :address, :image, 
     :category_id, :budget_id, :opening_hour_id, 
     :id, :created_at, :updated_at,
-    :user_id
+    :user_id, :tag_name
   ) 
 
   with_options presence: true do
@@ -17,11 +17,21 @@ class PostForm
   end
 
   def save
-    Post.create(title: title, text: text, address: address, image: image, category_id: category_id, budget_id: budget_id, opening_hour_id: opening_hour_id, user_id: user_id)
+    post = Post.create(title: title, text: text, address: address, image: image, category_id: category_id, budget_id: budget_id, opening_hour_id: opening_hour_id, user_id: user_id)
+    if tag_name.present?
+      tag = Tag.where(tag_name: tag_name).first_or_initialize
+      tag.save
+      PostTagRelation.create(post_id: post.id, tag_id: tag.id)
+    end
   end
 
   def update(params, post)
+    post.post_tag_relations.destroy_all
+    tag_name = params.delete(:tag_name)
+    tag = Tag.where(tag_name: tag_name).first_or_initialize if tag_name.present?
+    tag.save if tag_name.present?
     post.update(params)
+    PostTagRelation.create(post_id: post.id, tag_id: tag.id) if tag_name.present?
   end
   
   def self.search(search)
