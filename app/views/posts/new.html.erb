@@ -1,6 +1,6 @@
 <h1>新規投稿ページ</h1>
 
-    <%= form_with(model: @post, local:true) do |f| %>
+    <%= form_with model: @post_form, url: posts_path, method: :posts, id: 'new-post', local: true do |f| %>
       <%= render "shared/error_messages", model: f.object %>
       
       <div class="select-name">
