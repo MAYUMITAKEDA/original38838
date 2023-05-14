@@ -30,6 +30,7 @@ class PostsController < ApplicationController
   def edit
     post_attributes = @post.attributes
     @post_form = PostForm.new(post_attributes)
+    @post_form.tag_name = @post.tags.first&.tag_name
   end
 
   def update
@@ -57,7 +58,7 @@ class PostsController < ApplicationController
   private
 
   def post_form_params
-    params.require(:post_form).permit(:title, :text, :address, :category_id, :budget_id, :opening_hour_id, :image).merge(user_id: current_user.id)
+    params.require(:post_form).permit(:title, :text, :address, :category_id, :budget_id, :opening_hour_id, :image, :tag_name).merge(user_id: current_user.id)
   end
 
   def set_post

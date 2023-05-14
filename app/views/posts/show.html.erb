@@ -50,6 +50,9 @@
       <%= image_tag @post.image.variant(resize: '300x300') %>
     </div>
 
+    <div class="post_main_tag">
+      <%= @post.tags.first&.tag_name %>
+    </div>
 
     <%#ログインユーザーの場合は以下のコメント入力フォームが表示される%>
     <div class="post__comments">
