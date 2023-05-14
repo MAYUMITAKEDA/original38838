@@ -1,18 +1,20 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :edit, :destroy]
-  before_action :set_post, only: [:show, :edit, :update, :destroy, :move_to_index]
+  before_action :set_post, only: [:show, :destroy, :edit, :update]
+  before_action :set_post_form, only: [:create, :update]
   before_action :move_to_index, only: [:edit, :destroy]
+
   def index
     @posts = Post.all.order(created_at: :desc)
   end
   
   def new
-    @post = Post.new
+    @post_form = PostForm.new
   end
 
   def create
-    @post = Post.new(post_params)
-    if @post.save
+    if @post_form.valid?
+      @post_form.save
       redirect_to root_path      
     else
       render :new
@@ -26,10 +28,14 @@ class PostsController < ApplicationController
   end
 
   def edit
+    post_attributes = @post.attributes
+    @post_form = PostForm.new(post_attributes)
   end
 
   def update
-    if @post.update(post_params)
+    @post_form.image ||= @post.image.blob
+    if @post_form.valid? 
+      @post_form.update(post_form_params, @post)
       redirect_to post_path
     else
       render :edit
@@ -45,17 +51,21 @@ class PostsController < ApplicationController
   end
 
   def search
-    @posts = Post.search(params[:keyword])
+    @post_form = PostForm.search(params[:keyword])
   end
 
   private
 
-  def post_params
-    params.require(:post).permit(:title, :text, :address, :category_id, :budget_id, :opening_hour_id, :image).merge(user_id: current_user.id)
+  def post_form_params
+    params.require(:post_form).permit(:title, :text, :address, :category_id, :budget_id, :opening_hour_id, :image).merge(user_id: current_user.id)
   end
 
   def set_post
     @post = Post.find(params[:id])
+  end
+
+  def set_post_form
+    @post_form = PostForm.new(post_form_params)
   end
 
   def move_to_index
