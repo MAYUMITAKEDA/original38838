@@ -53,7 +53,14 @@
     <div class="post_main_tag">
       <%= @post.tags.first&.tag_name %>
     </div>
-
+    <%#投稿内容へいいね機能の実装%>
+    <div id="like-btn<%= @post.id %>">
+      <% if user_signed_in? && @post.liked_by?(current_user) %>
+        <%= link_to "いいね済", post_like_path(@post.id), method: :delete, class: "post_likes" %>
+      <% else %>
+        <%= link_to "いいねする", post_likes_path(@post.id), method: :post, class: "post_likes" %>
+      <% end %>
+    <%#//投稿内容へいいね機能の実装%>
     <%#ログインユーザーの場合は以下のコメント入力フォームが表示される%>
     <div class="post__comments">
       <% if user_signed_in? %>
