@@ -58,15 +58,15 @@
       <%= render partial: "likes/like", locals: {post: @post} %>
     <%#//投稿内容へいいね機能の実装%>
     <%#ログインユーザーの場合は以下のコメント入力フォームが表示される%>
-    <div class="post__comments">
+    <div class="comment-form">
       <% if user_signed_in? %>
-        <%= form_with(model: [@post, @comment], local: true) do |f| %>
+        <%= form_with model: [@post, @comment], id: "comment-form", local: true do |f| %>
           <div class="field">
             <%= f.label :text, "コメントする" %><br />
-            <%= f.text_area :text %>
+            <%= f.text_area :text, class: "comment-text" %>
           </div>
           <div class="actions">
-            <%= f.submit "送信", class: :form__btn %>
+            <%= f.submit "送信", class: "comment-btn" %>
           </div>
         <% end %>
       <% end %>
@@ -74,13 +74,13 @@
     <%#//ログインユーザーの場合は以下のコメント入力フォームが表示される%>
 
     <%#投稿に紐づくコメント一覧を表示する%>
-    <div class="comments">
+    <div id="comments">
       コメント一覧
-      <% @comments.each do |comment| %>
-        <p>
-          <strong><%= link_to comment.user.nickname, "user/#{comment.user_id}" %>:</strong>
+      <% @post.comments.each do |comment| %>
+        <div class="comment">
+          <p><%= link_to comment.user.nickname, user_path(comment.user) %>:</p>
           <%= comment.text%>
-        </p>
+        </div>
       <% end %>
     </div>
     <%#//投稿に紐づくコメント一覧を表示する%>
