@@ -17,8 +17,23 @@
         <th class="table__col1">プロフィール</th>
         <td class="table__col2"><%= @user.profile %></td>
       </tr>
+      <tr>
+        <th class="table__col1">フォロワー数：</th>
+        <td class="table__col2"><%= @user.followers.count %></td>
+      </tr>
     </tbody>
   </table>
+  <%#フォローボタンの設置%>
+  <div class="profile_follow">
+  <% if user_signed_in? && current_user != @user %>
+    <% if @user.followed_by?(current_user) %>
+      <%= link_to "フォロー中", user_relationship_path(@user.id), class: "btn", method: :delete %>
+    <% else %>
+      <%= link_to "フォローする", user_relationships_path(@user.id), class: "btn", method: :post %>
+    <% end %>
+  <% end %>  
+  </div>
+  <%#//フォローボタンの設置%>
   <h2 class="page-heading">
     <%= "#{@user.nickname}さんの投稿一覧" %>
     <% @posts.each do |post| %>
