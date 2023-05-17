@@ -1,0 +1,51 @@
+<%= form_with model: @post_form, url: posts_path, id: 'new_post', local: true do |f| %>
+  <%= render "shared/error_messages", model: f.object %> 
+      <div class="select-name">
+      カテゴリー
+      </div>
+      <%= f.collection_select(:category_id, Category.all, :id, :name, {}, {class:"select-box"}) %>
+      <div class="select-name">
+      予算
+      </div>
+      <%= f.collection_select(:budget_id, Budget.all, :id, :name, {}, {class:"select-box"}) %>
+      <div class="select-name">
+      営業時間
+      </div>
+      <%= f.collection_select(:opening_hour_id, OpeningHour.all, :id, :name, {}, {class:"select-box"}) %>
+
+      <div class ="field">
+      <%= f.label :title, "タイトル" %><br />
+      <%= f.text_field :title, maxlength: "50" %>
+      </div>
+
+      <div class="field">
+      <%= f.label :text, "詳細" %><br />
+      <%= f.text_area :text, maxlength: "2000" %>
+      </div>
+      
+      <div class="field">
+      <%= f.label :address, "住所" %><br />
+      <%= f.text_field :address %>
+      </div>
+
+      <div class="tag-field">
+      <%= f.label :tag_name, "タグ" %><br />
+      <%= f.text_field :tag_name %>
+      </div>
+
+      <div class="image-field">
+        <div id="previews"></div>
+         <div class="click-upload">
+            <%= f.file_field :image %>
+         </div>
+      </div>   
+      <br>
+
+      <div class="submit-btn">
+      <%= f.submit "投稿する" %>
+      </div>
+
+      <div class="back-top">
+      <%= link_to 'Topへ戻る', root_path %>
+      </div>
+<% end %>
