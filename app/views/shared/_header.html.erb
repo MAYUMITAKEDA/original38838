@@ -1,19 +1,22 @@
-<div class='nav'>
-  <ul class='lists-right'>
+<%# CSS・・・assets/stylesheets/shared/header.css %>
+<header class='page-header wrapper'>
+  <div class="heading-left">
+    <%= link_to 'TRIP ROG', root_path, class:"title-logo" %>
+    <h2 class="sub-title-logo">〜旅を楽しむ〜</h2>
+  </div>
 
-  <% if user_signed_in? %>
-  <li><%= link_to current_user.nickname, "/users/#{current_user.id}", class: "user-nickname" %></li>
-  <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout" %></li>
-  <li><%= link_to '新規投稿', new_post_path, class: "new-post" %>
-  <% else %>
-  <li><%= link_to 'ログイン', new_user_session_path, class: "login" %></li>
-  <li><%= link_to '新規登録', new_user_registration_path, class: "sign-up" %></li>
-  <% end %>
 
-  </ul>
 
-  <%= form_with(url: search_posts_path, local: true, method: :get, class: "search-form") do |f|%>
-    <%= f.text_field :keyword, placeholder: "投稿を検索する", class: "search-input" %>
-    <%= f.submit "検索", class: "search-btn" %>
-  <% end %>
-</div>
+  <nav>
+    <ul class='main-nav'>
+    <% if user_signed_in? %>
+    <li><%= link_to 'MYPAGE', "/users/#{current_user.id}" %></li>
+    <li><%= link_to 'LOGOUT', destroy_user_session_path, method: :delete %></li>
+    <li><%= link_to 'NEWPOST', new_post_path %>
+    <% else %>
+    <li><%= link_to 'LOGIN', new_user_session_path %></li>
+    <li><%= link_to 'NEWREGISTER', new_user_registration_path %></li>
+    <% end %>
+    </ul>
+  </nav>
+</header>
