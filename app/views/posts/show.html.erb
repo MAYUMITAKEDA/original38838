@@ -1,91 +1,96 @@
-<h1>投稿内容詳細</h1>
-
 <div class="main">
-  <%#ポストの投稿者とログインユーザーが同一の場合は「編集」「削除」ボタンが表示される%>
-  <div class="post__manage">
-    <% if user_signed_in? && current_user.id == @post.user_id %>
-      <%= link_to "編集", edit_post_path(@post.id), class: :post__btn %>
-      <%= link_to "削除", post_path(@post.id), method: :delete, class: :post__btn %>
-     <% end %>
-  </div>
-<%#// ポストの投稿者とログインユーザーが同一の場合は「編集」「削除」ボタンが表示される%>
-
-<%# 投稿内容詳細表示 %>
+  <%= render "shared/header" %>
   <div class="post_main">
-    <p class="post_main_title">
-      タイトル：<%= @post.title %>
-    </p>
-
-    <div class="post_main_detail">
-      <p class="post_main_category">
-        カテゴリー：<%= @post.category.name %>
-      </p>
-    </div>
-
-    <div class="post_main_detail">
-      <p class="post_main_budget">
-        予算：<%= @post.budget.name %>
-      </p>
-    </div>
-
-    <div class="post_main_detail">
-      <p class="post_main_opnening_hour">
-        営業時間：<%= @post.opening_hour.name %>
-      </p>
-    </div>
-
-    <div class="post_main_detail">
-      <p class="post_main_address">
-        住所：<%= @post.address %>
-      </p>
-    </div>
-
-    <div class="post_main_detail">
-      <p class="post_main_text">
-        文書：<%= @post.text %>
-      </p>
-    </div>
-
-    <div class="post_main_img">
-      <%= image_tag @post.image.variant(resize: '300x300') %>
-    </div>
-
-    <div class="post_main_tag">
-      <%= @post.tags.first&.tag_name %>
-    </div>
+    <div class="post_main_title"><%= @post.title %></div>
     <%#投稿内容へいいね機能の実装%>
-    <div id="like-<%= @post.id %>">
-      <%= render partial: "likes/like", locals: {post: @post} %>
+      <div id="like-<%= @post.id %>", class="user_likes">
+        <%= render partial: "likes/like", locals: {post: @post} %>
+      </div>
     <%#//投稿内容へいいね機能の実装%>
-    <%#ログインユーザーの場合は以下のコメント入力フォームが表示される%>
-    <div class="comment-form">
-      <% if user_signed_in? %>
-        <%= form_with model: [@post, @comment], id: "comment-form", local: true do |f| %>
-          <div class="field">
-            <%= f.label :text, "コメントする" %><br />
-            <%= f.text_area :text, class: "comment-text" %>
-          </div>
-          <div class="actions">
-            <%= f.submit "送信", class: "comment-btn" %>
-          </div>
-        <% end %>
+    <%#ポストの投稿者とログインユーザーが同一の場合は「編集」「削除」ボタンが表示される%>
+    <div class="post__manage">
+      <% if user_signed_in? && current_user.id == @post.user_id %>
+        <%= link_to "編集", edit_post_path(@post.id), class: :post__btn %>
+        <%= link_to "削除", post_path(@post.id), method: :delete, class: :post__btn %>
       <% end %>
     </div>
-    <%#//ログインユーザーの場合は以下のコメント入力フォームが表示される%>
+    <%#// ポストの投稿者とログインユーザーが同一の場合は「編集」「削除」ボタンが表示される%>
 
-    <%#投稿に紐づくコメント一覧を表示する%>
-    <div id="comments">
-      コメント一覧
-      <% @post.comments.each do |comment| %>
-        <div class="comment">
-          <p><%= link_to comment.user.nickname, user_path(comment.user) %>:</p>
-          <%= comment.text%>
+    <%# 投稿内容詳細表示 %>
+    <div class="post_show_main">
+      <div class="post_image_field">
+        <div class="post_main_img">
+        <%= image_tag @post.image.variant(resize: '500x500') %>
         </div>
-      <% end %>
+      </div>
+
+      <div class="post_text_field">
+        <div class="post_main_detail">
+          <p class="post_main_category">
+          カテゴリー：<%= @post.category.name %>
+          </p>
+        </div>
+
+        <div class="post_main_detail">
+          <p class="post_main_budget">
+          予算：<%= @post.budget.name %>
+          </p>
+        </div>
+
+        <div class="post_main_detail">
+          <p class="post_main_opnening_hour">
+            営業時間：<%= @post.opening_hour.name %>
+          </p>
+        </div>
+
+        <div class="post_main_detail">
+          <p class="post_main_address">
+            住所：<%= @post.address %>
+          </p>
+        </div>
+
+        <div class="post_main_detail">
+          <p class="post_main_text">
+            文書：<%= @post.text %>
+          </p>
+        </div>
+
+        <div class="post_main_tag">
+          【<%= @post.tags.first&.tag_name %>】
+        </div>
+      </div>
     </div>
-    <%#//投稿に紐づくコメント一覧を表示する%>
 
-    <%= link_to 'Topへ戻る', root_path %>
+      <%#ログインユーザーの場合は以下のコメント入力フォームが表示される%>
+      <div class="comment-form">
+        <% if user_signed_in? %>
+          <%= form_with model: [@post, @comment], id: "comment-form", local: true do |f| %>
+            <div class="comment_field">
+              <%= f.label :text, "コメントする" %><br />
+              <%= f.text_area :text, class: "comment-text" %>
+            </div>
+            <div class="comment_action">
+              <%= f.submit "送信", class: "comment-btn" %>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+      <%#//ログインユーザーの場合は以下のコメント入力フォームが表示される%>
 
+      <%#投稿に紐づくコメント一覧を表示する%>
+      <h2 class="user_comment">コメント一覧</h2>
+      <div id="comments", class="comment_result">
+        <% @post.comments.each do |comment| %>
+          <div class="user_comment_text">
+            <p><%= link_to comment.user.nickname, user_path(comment.user) %>:<%= comment.text%></p>
+          </div>
+          <br />
+        <% end %>
+      </div>
+      <%#//投稿に紐づくコメント一覧を表示する%>
+
+      <div class="btn_contents">
+        <%= link_to 'Topへ戻る', root_path, class: "back_btn" %>
+      </div>
   </div>
 </div>

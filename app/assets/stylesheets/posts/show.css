@@ -1,0 +1,84 @@
+
+.main {
+  background-image: url("/images/index.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 100vh;
+  min-width: 100vw;
+}
+
+.post_main_title {
+  font-size: 30px;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.user_likes {
+  text-align: center;
+  margin: 20px;
+}
+
+/**投稿詳細メイン**/
+.post_show_main {
+  display: flex;
+  justify-content: center;
+  margin: 50px;
+  padding: 30px;
+  background-color:rgba(255,255,255,0.6);
+	background-blend-mode:lighten;
+}
+
+/**画像**/
+
+
+/**文書コンテンツ**/
+.post_text_field {
+  width: 100%;
+}
+
+.post_main_detail {
+  border-bottom: 2px solid;
+}
+/**いいね**/
+
+
+/**コメント入力欄**/
+.comment_field {
+  text-align: center;
+}
+
+.comment-text {
+  width: 500px;
+  height: 180px;
+  resize: none;
+}
+.comment_action {
+  text-align: center;
+}
+
+/**コメント一覧**/
+.user_comment {
+  text-align: center;
+  margin-top: 20px;
+}
+.comment_result {
+  border-width: 1px;
+  border-style: solid;
+  overflow: scroll;
+  height: 200px;
+  width: 500px;
+  margin: 0 300px 0 300px;
+  padding: 20px;
+  text-align: center;
+}
+
+.user_comment_text {
+  text-align: center;
+
+}
+
+.btn_contents {
+  text-align: center;
+  
+}
+
