@@ -1,0 +1,77 @@
+/**ページ全体**/
+.index-main {
+  background-image: url("/images/index.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 100vh;
+  min-width: 100vw;
+}
+
+/**ヘッダー全体**/
+
+
+/**セカンドヘッダー**/
+.second-header{
+  margin: 50px 0 50px 0;
+}
+
+.subtitle {
+  text-align: center;
+}
+
+.sub-main-title {
+  font-family: 'Kaisei Decol', serif;
+  font-family: 'Kaisei HarunoUmi', serif;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 30px;
+}
+
+.sub-second-title {
+  font-family: 'Kaisei Decol', serif;
+  font-family: 'Kaisei HarunoUmi', serif;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 15px;
+  margin: 10px;
+}
+
+.search-bar-inner {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.search-input {
+  height: 30px;
+  border-radius: 10px;
+  border-style: solid;
+}
+
+.search-action {
+  text-align: center;
+  margin: 25px;
+}
+
+.search-btn {
+  width: 100px;
+  height: 30px;
+  background-color: #dddddd;
+  border-radius: 10px;
+  border-style: solid;
+}
+
+::placeholder {
+  text-align: center;
+}
+
+/**投稿一覧**/
+.posts-row {
+  margin: 0 80px 50px 80px;
+  background-color:rgba(255,255,255,0.6);
+	background-blend-mode:lighten;
+}
+
+.posts-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px;
+  padding: 20px;
+}
