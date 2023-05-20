@@ -7,6 +7,13 @@
   min-width: 100vw;
 }
 
+.post_main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 .post_main_title {
   font-size: 30px;
   margin-top: 20px;
@@ -20,6 +27,7 @@
 
 /**投稿詳細メイン**/
 .post_show_main {
+  width: 1000px;
   display: flex;
   justify-content: center;
   margin: 50px;
@@ -69,7 +77,7 @@
   width: 500px;
   margin: 0 300px 0 300px;
   padding: 20px;
-  text-align: center;
+
 }
 
 .user_comment_text {
