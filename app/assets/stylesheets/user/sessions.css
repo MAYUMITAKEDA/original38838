@@ -1,0 +1,82 @@
+.sessions {
+  background-image: url("/images/index.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 100vh;
+  min-width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.sessions_main {
+  border: solid 1px;
+  background-color:rgba(255,255,255,0.6);
+	background-blend-mode:lighten;
+  width: 800px;
+  height: 350px;
+  display: flex;
+  flex-direction: column;
+}
+
+.sessions_title {
+  height: 75px;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 40px;
+}
+
+form {
+  padding-bottom: 20px;
+}
+
+.login_flash_message {
+  text-align: center;
+}
+
+.sessions_field {
+  width: 800px;
+  height: 100px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.email {
+  width: 500px;
+  margin-top: 15px;
+  font-size: 15px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.email_label {
+  font-size: 20px;
+}
+
+.password {
+  width: 500px;
+  margin-top: 15px;
+  font-size: 15px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.password_label {
+  font-size: 20px;
+}
+
+.sessions_actions {
+  text-align: center;
+  margin: 0 30px;
+}
+
+.sessions_btn {
+  width: 200px;
+  height: 30px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}

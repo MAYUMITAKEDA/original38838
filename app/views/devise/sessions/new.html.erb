@@ -1,25 +1,31 @@
-<h2>ログイン</h2>
+<body>
+<div class="sessions">
+  <div class="sessions_main">
+    <div class="sessions_title">
+      LOG IN
+    </div>
+    <div class="sessions_form">
+    <%= form_with model: @user, url: user_session_path, local: true do |f| %>
+      <div class='login-flash-message'>
+        <%= flash[:notice] %>
+        <%= flash[:alert] %>
+      </div>
 
-<%= form_with model: @user, url: user_session_path, local: true do |f| %>
+      <div class="sessions_field">
+        <%= f.label :email,"E-mail", class:"email_label" %><br />
+        <%= f.email_field :email, class:"email", autofocus: true, autocomplete: "email" %>
+      </div>
 
-  <div class='login-flash-message'>
-    <%= flash[:notice] %>
-    <%= flash[:alert] %>
+      <div class="sessions_field">
+        <%= f.label :password, "Password（半角英数6文字以上）", class:"password_label" %><br />
+        <%= f.password_field :password, class:"password", autocomplete: "current-password" %>
+      </div>
+      
+      <div class="sessions_actions">
+        <%= f.submit "LOG IN", class: "sessions_btn" %>
+      </div>
+    <% end %>
+    </div>
   </div>
-
-  <div class="field">
-    <%= f.label :email,"メールアドレス" %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password, "パスワード（半角英数6文字以上）" %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
-
-  <br>
-  
-  <div class="actions">
-    <%= f.submit "ログイン", class: :form_btn %>
-  </div>
-<% end %>
+</div>
+</body>
