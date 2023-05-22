@@ -1,7 +1,7 @@
-<body class="index-main">
-  <%= render "shared/header" %>
+<%= render "shared/header" %>
+<div class="top_main">
   <!--ヘッダーサブ-->
-  <div class="second-header">
+  <div class="second_header">
     <div class ="subtitle">
       <h1 class="sub-main-title">Find your special trip</h1>
       <p class="sub-second-title">あなたにピッタリの旅を見つけませんか？</p>
@@ -21,59 +21,35 @@
       </div>
     </div>
   </div>
-  <!--ヘッダーサブ-->
 
-  <!--人気投稿-->
-  <div class="posts-row">
-    <ul class="posts-list">
+  <div class="posts_main">
+    <div class="posts_lists">
       <% @posts.each do |post| %>
-      <li class="list">
+      <div class="post_list">
         <%= link_to post_path(post.id) do %>
-        <div class="post-img">
-        <%= image_tag post.image.variant(resize: '300x300'), class: 'post-image' %>
-        </div>
-        <div class="post-info">
-          <div class="post-title">
-          <%= post.title %>
+          <div class="post_img">
+            <%= image_tag post.image, class: 'post-image' %>
           </div>
-          <div class="post-category">
-          <%= post.category.name %>
-          </div>
-        </div>
+          <div class="post_list_text">
+            <p class="post_title">
+              タイトル：<%= post.title %>
+            </p>
+            <p class="post_category">
+              カテゴリー：<%= post.category.name %>
+            </p>
         <% end %>
-        <div class="post-user">
-        <%= link_to "投稿者:#{post.user.nickname}", user_path(post.user), class: :post__user %>
-        </div>
-      </li>
-      <% end %>
-    </ul>
-  </div>
-  <!--人気投稿-->
-  <!--投稿一覧-->
-  <div class="posts-row">
-    <ul class="posts-list">
-      <% @posts.each do |post| %>
-      <li class="list">
-        <%= link_to post_path(post.id) do %>
-        <div class="post-img">
-        <%= image_tag post.image.variant(resize: '300x300'), class: 'post-image' %>
-        </div>
-        <div class="post-info">
-          <div class="post-title">
-          <%= post.title %>
+          <p class="post_nickname">
+            投稿者：<%= link_to "#{post.user.nickname}", user_path(post.user) %>
+          </p>
+          <p class="post_created_at">
+            投稿日：<%= post.created_at.strftime("%Y-%m-%d") %>
+          </p>
           </div>
-          <div class="post-category">
-          <%= post.category.name %>
-          </div>
-        </div>
-        <% end %>
-        <div class="post-user">
-        <%= link_to "投稿者:#{post.user.nickname}", user_path(post.user), class: :post__user %>
-        </div>
-      </li>
+      </div>
       <% end %>
-    </ul>
+    </div>
   </div>
   <!--投稿一覧-->
-  <%= render "shared/footer" %>
-</body>
+</div>
+<%= render "shared/footer" %>
+
