@@ -1,0 +1,99 @@
+
+.user_page_main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.user_page_head {
+  width: 80%;
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border-bottom: 2px dotted gray;
+  
+}
+
+/**ユーザープロフィール**/
+
+
+.user_profile {
+  height: 100px;
+}
+
+.user_name {
+  font-size: 20px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  margin-bottom: 10px;
+}
+
+.user_edit {
+  border: solid 0.5px;
+  background-color: lightblue;
+  width: 200px;
+  height: 30px;
+  text-align: center;
+  padding: 5px 0;
+  margin: 0 auto;
+}
+
+.user_follow {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.user_profile {
+  text-align: center;
+}
+
+/**編集機能**/
+
+
+/**フォロー機能**/
+.user_follow {
+  border: solid 1px;
+  height: 30px;
+  width: 100px;
+  margin: 20px auto;
+  padding: 5px;
+  background-color: skyblue
+}
+
+.follow_btn {
+  height: 20px;
+}
+
+/**ユーザー投稿一覧**/
+.user_post {
+  margin-top: 30px;
+  font-size: 20px;
+}
+.user_page_row {
+  padding-top: 50px;
+  width: 80%;
+  text-align: center;
+}
+
+.user_post_list {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 10px;
+}
+
+.user_post__lists {
+  padding: 10px;
+}
+
+.user_post_title {
+  margin-top: 15px;
+  text-align: justify;
+  padding: 0 50px;
+}
+
+.user_post_category {
+  margin-top: 10px;
+  text-align: justify;
+  padding: 0 50px;
+}

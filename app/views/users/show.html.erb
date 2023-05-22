@@ -1,55 +1,58 @@
-<div class="main_contents">
-  <h2 class="page-heading">
-  <%= "#{@user.nickname}さんの情報" %>
-  </h2>
-
-  <% if user_signed_in? && current_user.id == @user.id %>
-    <%= link_to "編集する",edit_user_path(@user.id) %>
-  <% end %>
-  
-  <table class="profile_main">
-    <tbody>
-      <tr>
-        <th class="table__col1">ニックネーム</th>
-        <td class="table__col2"><%= @user.nickname %></td>
-      </tr>
-      <tr>
-        <th class="table__col1">プロフィール</th>
-        <td class="table__col2"><%= @user.profile %></td>
-      </tr>
-      <tr>
-        <th class="table__col1">フォロワー数：</th>
-        <td class="table__col2"><%= @user.followers.count %></td>
-      </tr>
-    </tbody>
-  </table>
-  <%#フォローボタンの設置%>
-  <div class="profile_follow">
-  <% if user_signed_in? && current_user != @user %>
-    <% if @user.followed_by?(current_user) %>
-      <%= link_to "フォロー中", user_relationship_path(@user.id), class: "btn", method: :delete %>
-    <% else %>
-      <%= link_to "フォローする", user_relationships_path(@user.id), class: "btn", method: :post %>
-    <% end %>
-  <% end %>  
-  </div>
-  <%#//フォローボタンの設置%>
-  <h2 class="page-heading">
-    <%= "#{@user.nickname}さんの投稿一覧" %>
-    <% @posts.each do |post| %>
-    <div class="user_post">
-      <%= link_to post_path(post.id) do %>
-      <%= image_tag post.image.variant(resize: '300x300'), class: 'post-image' %>
-      <% end %>
-      <div class="post-body">
-      <%= link_to post.title, post_path(post.id), class: :post__title %>
-      <p class="post-category">
-      <%= post.category.name %>
-      </p>
+<div class="user_page">
+<%= render "shared/header" %>
+  <div class="user_page_main">
+    <div  class="user_page_head">
+      <div class="user_name">
+        <%= @user.nickname %>
+      </div>
+      <div class="user_profiles">
+        <ul class="user_profile">
+            <li>フォロワー数：<%= @user.followers.count %></li>
+            <li>投稿数：<%= @user.posts.count %></li>
+            <li>プロフィール:<%= @user.profile %></li>
+        </ul>
+        <%#編集ボタンの設置%>
+        <% if user_signed_in? && current_user.id == @user.id %>
+          <div class="user_edit"> 
+          <%= link_to "編集する",edit_user_path(@user.id) %>
+          </div>
+        <% end %>
+        <%#編集ボタンの設置%>
+        <%#フォローボタンの設置%>
+          <% if user_signed_in? && current_user != @user %>
+          <div class="user_follow">
+            <% if @user.followed_by?(current_user) %>
+              <%= link_to "フォロー中", user_relationship_path(@user.id), class: "follow_btn", method: :delete %>
+            <% else %>
+              <%= link_to "フォローする", user_relationships_path(@user.id), class: "follow_btn", method: :post %>
+            <% end %>
+          </div>
+          <% end %>  
+        <%#//フォローボタンの設置%>
+      </div>
     </div>
-    <% end %>
-  </h2>
-
-  <%= link_to "Topへ戻る", root_path %>
-
+    <%#ユーザー投稿一覧%>
+    <p class="user_post"><%= "#{@user.nickname}さんの投稿一覧" %></p>
+    <div class="user_page_row">
+      <div class="user_post_list">
+        <% @posts.each do |post| %>
+        <div class="user_post__lists">
+          <%= link_to post_path(post.id) do %>
+          <p class="user_post_img">
+          <%= image_tag post.image.variant(resize: '300x300') %>
+          </p>
+          <p class="user_post_title">タイトル：
+          <%= link_to post.title, post_path(post.id) %>
+          </p>
+          <p class="user_post_category">カテゴリー：
+          <%= post.category.name %>
+          </p>
+          <% end %>
+        </div>
+        <% end %>
+      </div>
+    </div>
+    <%#ユーザー投稿一覧%>
+    <%= link_to "Topへ戻る", root_path %>
+  </div>
 </div>
