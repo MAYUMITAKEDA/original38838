@@ -1,38 +1,38 @@
   <body>
     <div class="registrations">
     <div class="registrations_main">
-      <div class="registrations_title">NEW<br>REGISTRATION</div>
+      <div class="registrations_title">Create New Account</div>
         <div class="registrations_form">
           <%= form_with model: @user, url: user_registration_path, local: true do |f| %>
           <%= render "shared/error_messages", model: f.object %>
           
           <div class="registrations_field">
-            <%= f.label :email, "Email", class: "registrations_label" %><br />
+            <%= f.label :email, "メールアドレス", class: "registrations_label" %><br />
             <%= f.email_field :email, class: "user_email", autofocus: true, autocomplete: "email" %>
           </div>
 
           <div class="registrations_field">
-            <%= f.label :password, "Password（半角英数字6文字以上）", class: "registrations_label" %><br />
+            <%= f.label :password, "パスワード（半角英数字6文字以上）", class: "registrations_label" %><br />
             <%= f.password_field :password, class: "user_password", autocomplete: "new-password" %>
           </div>
 
           <div class="registrations_field">
-            <%= f.label :password_confirmation, "Password Confirmation", class: "registrations_label" %><br />
+            <%= f.label :password_confirmation, "確認用パスワード", class: "registrations_label" %><br />
             <%= f.password_field :password_confirmation, class:"user_password_confirmation", autocomplete: "new-password" %>
           </div>
 
           <div class="registrations_field">
-            <%= f.label :nickname, "Nickname", class: "registrations_label" %><br />
+            <%= f.label :nickname, "ニックネーム", class: "registrations_label" %><br />
             <%= f.text_field :nickname, class: "user_nickname", maxlength: "20" %>
           </div>
 
           <div class="profile_field">
-            <%= f.label :profile, "Profile(Maximum is 150 characters)", class: "registrations_label" %><br />
+            <%= f.label :profile, "プロフィール", class: "registrations_label" %><br />
             <%= f.text_area :profile, class: "user_profile" ,maxlength:"150" %>
           </div>
 
           <div class="registrations_actions">
-            <%= f.submit "Create my acount", class: "registrations_btn" %>
+            <%= f.submit "Create My Acount", class: "registrations_btn" %>
           </div>
           <% end %>
         </div>
