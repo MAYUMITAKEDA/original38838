@@ -1,23 +1,33 @@
 <%= render "shared/header" %>
-<div class="posts row">
-  <% @post_form.each do |post| %>
-    <li class="list">
-      <%= link_to post_path(post.id) do %>
-        <div class="post-img-content">
-        <%= image_tag post.image.variant(resize: '300x300'), class: 'post-image' %>
-        </div>
-        <div class="post-info">
-          <div class="post-title">
-          <%= post.title %>
-          </div>
-          <div class="post-category">
-          <%= post.category.name %>
-          </div>
-        </div>
-      <% end %>
-        <div class="post-user">
-        <%= link_to "投稿者:#{post.user.nickname}", user_path(post.user), class: :post__user %>
-        </div>
-    </li>
+<h3>検索ページ</h3>
+<h3><%= link_to 'トップページへ戻る', root_path%></h3>
+<div class="post-contents" id ="detailed-search-result-wrapper">
+  <%= search_form_for @q, url: search_posts_path, html: {id: "detailed-search-form"} do |f| %>
+    <div class="search-field">
+      <%= f.label :title_cont, 'タイトル' %>
+      <br>
+      <%= f.text_field :title_cont, placeholder: 'タイトルから検索' %>
+    </div>
+    <div class="search-filed">
+      <%= f.label :category_id_eq, 'カテゴリ' %>
+      <br>
+      <%= f.collection_select(:category_id_eq, Category.all, :id, :name, {include_blank: "-----"}) %>
+    <%= f.submit '検索'%>
   <% end %>
+
+  <ul class="post-lists", id="detailed-search-result">
+    <% @posts.each do |post| %>
+      <li class="list">
+        <div class="posted-content">
+        <%= link_to post_path(post.id) do %>
+          <%= image_tag post.image %><br>
+          <%= post.title%><br>
+          <%= post.category.name%><br>
+        <% end %>
+          <%= link_to "#{post.user.nickname}", user_path(post.user) %>
+          <%= post.created_at.strftime("%Y-%m-%d") %>
+        </div>
+      </li>
+    <% end %>
+  </ul>
 </div>
