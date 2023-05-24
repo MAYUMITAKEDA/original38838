@@ -5,16 +5,17 @@
   justify-content: space-between;
   align-items: center;
   position: sticky;
+  background-color: bisque;
 }
 
 .wrapper {
-  max-width: 1100px;
+  /**max-width: 1100px;*/
   margin: 0 auto;
 }
 
 .heading-left {
   width: 50%;
-  margin-left: 20px;
+  margin-left: 80px;
   align-items: center;
   display: flex;
 }
@@ -44,6 +45,7 @@
 .main-nav {
   display: flex;
   justify-content: space-between;
+  margin-right: 80px;
 }
 
 li {

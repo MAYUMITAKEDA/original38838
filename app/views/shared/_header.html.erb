@@ -5,15 +5,21 @@
     <h2 class="sub-title-logo">〜旅を楽しむ〜</h2>
   </div>
 
-
+  <div class="current-user">
+    <% if user_signed_in? %>
+      ようこそ、<%= "#{current_user.nickname}" %>さん
+    <% end %>
+  </div>
 
   <nav>
     <ul class='main-nav'>
     <% if user_signed_in? %>
+    <li><%= link_to 'SEARCH', search_posts_path %></li>
     <li><%= link_to 'MYPAGE', "/users/#{current_user.id}" %></li>
-    <li><%= link_to 'LOGOUT', destroy_user_session_path, method: :delete %></li>
     <li><%= link_to 'NEWPOST', new_post_path %>
+    <li><%= link_to 'LOGOUT', destroy_user_session_path, method: :delete %></li>
     <% else %>
+    <li><%= link_to 'SEARCH', search_posts_path %></li>
     <li><%= link_to 'LOGIN', new_user_session_path %></li>
     <li><%= link_to 'NEWREGISTER', new_user_registration_path %></li>
     <% end %>
