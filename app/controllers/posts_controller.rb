@@ -52,7 +52,12 @@ class PostsController < ApplicationController
   end
 
   def search
-    @post_form = PostForm.search(params[:keyword])
+    if params[:q]&.dig(:title)
+      squished_keywords = params[:q][:title].squish
+      params[:q][:title_cont_any] = squished_keywords.split(" ")
+    end
+    @q = Post.ransack(params[:q])
+    @posts = @q.result
   end
 
   private

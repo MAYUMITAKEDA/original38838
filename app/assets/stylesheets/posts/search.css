@@ -1,0 +1,90 @@
+/**詳細検索**/
+.search-form-title {
+  font-size: 30px;
+  margin-bottom: 20px;
+  width: 100%;
+  text-align: center;
+}
+
+.post-search-contents{
+  background-image: url("/images/index3.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+} 
+
+.search-form {
+  padding: 30px 100px 50px 100px;
+}
+
+.search-field {
+  margin-bottom: 20px;
+}
+
+.search-name {
+  margin-bottom: 5px;
+}
+
+.search-title {
+  width: 300px;
+  height: 25px;
+  font-size: 15px;
+}
+
+.checkbox {
+  margin: 5px;
+}
+
+.search-send-button {
+  text-align: center;
+}
+
+.search-send {
+  width: 200px;
+  margin-bottom: 40px;
+}
+
+/**検索結果表示**/
+.search-lists {
+  /**margin: 50px 80px 50px 80px;
+  background-color:rgba(255,255,255,0.6);
+  background-blend-mode:lighten;**/
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 10px;
+  padding-top: 50px;
+}
+
+.search-result-list {
+  text-align: center;
+  /**margin-bottom: 20px;**/
+  /**border-right: dotted 1.5px;
+  border-left: dotted 1.5px;**/
+  padding: 20px 0;
+  margin: 20px 50px;
+  background-color:rgba(255,255,255,0.6);
+  background-blend-mode:lighten;
+}
+
+.posted-image {
+  width: 300px;
+  height: 200px;
+  object-fit: cover;
+}
+
+.posted-date {
+  text-align: right;
+  padding-right: 70px;
+  margin-top: 5px;
+}
+
+.back-top {
+  text-align: center;
+  font-size: 20px;
+}
+
+
+.posted-text {
+  text-align: left;
+  margin-top: 10px;
+  padding: 0 70px;
+}
