@@ -1,8 +1,8 @@
 class Post < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :category
-  belongs_to :budget
   belongs_to :opening_hour
+  belongs_to :area
   belongs_to :user
   has_many :comments, dependent: :destroy
   has_one_attached :image
