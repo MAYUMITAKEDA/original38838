@@ -1,5 +1,5 @@
 .sessions {
-  background-image: url("/images/index.jpg");
+  background-image: url("/images/image12.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   min-height: 100vh;
@@ -11,18 +11,20 @@
 }
 
 .sessions_main {
+  width: 600px;
   border: solid 1px;
-  background-color:rgba(255,255,255,0.6);
-	background-blend-mode:lighten;
-  width: 800px;
-  height: 350px;
+  text-align: center;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 25px 0;
+  background-color:rgba(255,255,255,0.6);
+	background-blend-mode:lighten;
 }
 
 .sessions_title {
-  height: 75px;
-  margin-top: 20px;
+  padding: 20px 0;
   display: flex;
   flex-direction: column;
   text-align: center;
@@ -30,49 +32,51 @@
   font-size: 40px;
 }
 
-form {
-  padding-bottom: 20px;
-}
-
-.login-flash-message {
-  text-align: center;
-}
-
-.sessions_field {
-  width: 800px;
-  height: 100px;
-  text-align: center;
+.session_form {
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
-.email {
-  width: 500px;
-  margin-top: 15px;
+.login-flash-message {
+  text-align: center;
+  margin-bottom: 20px;
+  list-style-type: disc;
+}
+
+.sessions_field {
+  width: 800px;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.session_label {
+  text-align: left;
   font-size: 15px;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
-.email_label {
-  font-size: 20px;
-}
-
-.password {
+.session_email {
   width: 500px;
-  margin-top: 15px;
+  margin-top: 10px;
   font-size: 15px;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
-.password_label {
-  font-size: 20px;
+.session_password {
+  width: 500px;
+  margin-top: 10px;
+  font-size: 15px;
 }
 
 .sessions_actions {
   text-align: center;
-  margin: 0 30px;
+  margin-top: 40px;
 }
 
 .sessions_btn {

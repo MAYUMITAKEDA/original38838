@@ -1,31 +1,27 @@
 <body>
 <div class="sessions">
   <div class="sessions_main">
-    <div class="sessions_title">
-      LOG IN
-    </div>
-    <div class="sessions_form">
-    <%= form_with model: @user, url: user_session_path, local: true do |f| %>
-      <div class='login-flash-message'>
+    <h1 class="sessions_title">LOG IN</h1>
+    <%= form_with model: @user, url: user_session_path, class: "sessions_form", local: true do |f| %>
+      <li class='login-flash-message'>
         <%= flash[:notice] %>
         <%= flash[:alert] %>
+      </li>
+
+      <div class="sessions_field">
+        <%= f.label :email,"E-mail", class:"session_label" %><br />
+        <%= f.email_field :email, class:"session_email", autofocus: true, autocomplete: "email" %>
       </div>
 
       <div class="sessions_field">
-        <%= f.label :email,"E-mail", class:"email_label" %><br />
-        <%= f.email_field :email, class:"email", autofocus: true, autocomplete: "email" %>
-      </div>
-
-      <div class="sessions_field">
-        <%= f.label :password, "Password（半角英数6文字以上）", class:"password_label" %><br />
-        <%= f.password_field :password, class:"password", autocomplete: "current-password" %>
+        <%= f.label :password, "Password（半角英数6文字以上）", class:"session_label" %><br />
+        <%= f.password_field :password, class:"session_password", autocomplete: "current-password" %>
       </div>
       
       <div class="sessions_actions">
         <%= f.submit "LOG IN", class: "sessions_btn" %>
       </div>
     <% end %>
-    </div>
   </div>
 </div>
 </body>
