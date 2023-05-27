@@ -1,19 +1,19 @@
-<div class="user_page">
 <%= render "shared/header" %>
+<div class="user_page">
   <div class="user_page_main">
     <div  class="user_page_head">
-      <div class="user_name">
+      <p class="user_name">
         <%= @user.nickname %>
-      </div>
-      <div class="user_profiles">
+      </p>
+      <div class="user_profile_contets">
         <ul class="user_profile">
             <li>フォロワー数：<%= @user.followers.count %></li>
             <li>投稿数：<%= @user.posts.count %></li>
-            <li>プロフィール:<%= @user.profile %></li>
+            <li>プロフィール：<%= @user.profile %></li>
         </ul>
         <%#編集ボタンの設置%>
         <% if user_signed_in? && current_user.id == @user.id %>
-          <div class="user_edit"> 
+          <div class="user_edit_button"> 
           <%= link_to "編集する",edit_user_path(@user.id) %>
           </div>
         <% end %>
@@ -32,7 +32,7 @@
       </div>
     </div>
     <%#ユーザー投稿一覧%>
-    <p class="user_post"><%= "#{@user.nickname}さんの投稿一覧" %></p>
+    <p class="user_post"><%= "#{@user.nickname}さんの投稿" %></p>
     <div class="user_page_row">
       <div class="user_post_list">
         <% @posts.each do |post| %>
@@ -48,11 +48,15 @@
           <%= post.category.name %>
           </p>
           <% end %>
+          <p class="user_post_created_at">投稿日：
+          <%= post.created_at.strftime("%Y-%m-%d") %>
+          </p>
         </div>
         <% end %>
       </div>
     </div>
     <%#ユーザー投稿一覧%>
-    <%= link_to "Topへ戻る", root_path %>
+    <%= link_to "Topへ戻る", root_path, class: "return_top" %>
   </div>
 </div>
+<%= render "shared/footer" %>
