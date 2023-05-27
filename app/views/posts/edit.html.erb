@@ -1,2 +1,12 @@
-<h1>投稿内容編集画面</h1>
-<%= render partial: "form" %>
+<%= render "shared/header" %>
+<div class="post_new">
+  <div class="post_new_main">
+    <p class="post-new-title">編集する</p>
+    <%= render partial: "form" %>
+    <div class="post_new_btn">
+    <%= link_to 'Topへ戻る', root_path, class: "back_btn" %>
+  </div>
+  </div>
+</div>
+
+<%= render "shared/footer" %>
