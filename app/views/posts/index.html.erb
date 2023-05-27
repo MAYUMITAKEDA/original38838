@@ -1,27 +1,25 @@
 <%= render "shared/header" %>
 <div class="top_main">
-  <!--ヘッダーサブ-->
-  <div class="second_header">
+  <div class="header_contents">
+  <!--セカンドヘッダー-->
     <div class ="subtitle">
-      <h1 class="sub-main-title">Find your special trip</h1>
-      <p class="sub-second-title">あなたにピッタリの旅を見つけませんか？</p>
+      <h1 class="subtitle_main">Find your special trip</h1>
+      <p class="subtitle_second">あなたにピッタリの旅を見つけませんか？</p>
     </div>
-
+    <!--検索バー-->
     <div class="search-bar">
-      <div class="search-bar-inner">
-        <div class="search-field">
-        <%= form_with(url: search_posts_path, local: true, method: :get, class: "search-form") do |f|%>
-        <%= f.text_field :keyword, placeholder: "投稿を検索する", size: "100", class: "search-input" %>
-        </div>
-      </div>
-      <div class="search-action">
-        <%= f.submit "検索", class: "search-btn" %>
+      <%= search_form_for Post.ransack(params[:q]), url: search_posts_path, html: { class: "top-search-form"} do |f| %>
+        <%= f.text_field :title, placeholder: 'タイトルから探す', class: 'top-input-box' %>
+        <br>
+        <%= f.label :submit, class: "top-search-button" do %>
+          <input type="submit" value="検索" class="top-search-send">
+          <%= f.submit :submit, id: "q_submit", style: "display: none;" %>
         <% end %>
-      </div>
-      </div>
+      <% end %>
     </div>
+    <!--検索バー-->
   </div>
-
+  <!--セカンドヘッダー-->
   <div class="posts_main">
     <div class="posts_lists">
       <% @posts.each do |post| %>
@@ -35,11 +33,11 @@
               タイトル：<%= post.title %>
             </p>
             <p class="post_category">
-              カテゴリー：<%= post.category.name %>
+              カテゴリ：<%= post.category.name %>
             </p>
         <% end %>
           <p class="post_nickname">
-            投稿者：<%= link_to "#{post.user.nickname}", user_path(post.user) %>
+            投稿者　：<%= link_to "#{post.user.nickname}", user_path(post.user) %>
           </p>
           <p class="post_created_at">
             投稿日：<%= post.created_at.strftime("%Y-%m-%d") %>
@@ -50,6 +48,5 @@
     </div>
   </div>
   <!--投稿一覧-->
+  <%= render "shared/footer" %>
 </div>
-<%= render "shared/footer" %>
-

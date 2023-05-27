@@ -1,18 +1,13 @@
 /**ページ全体**/
-.top_main {
-  background-image: url("/images/index.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
-  height: 350px;
-  min-width: 100vw;
-}
-
-/**ヘッダー全体**/
 
 
 /**セカンドヘッダー**/
-.second_header{
-  height: 100%;
+.header_contents{
+  background-image: url("/images/image9.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 600px;
+  min-width: 100vw;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -23,19 +18,51 @@
   text-align: center;
 }
 
-.sub-main-title {
+.subtitle_main {
   font-family: 'Kaisei Decol', serif;
   font-family: 'Kaisei HarunoUmi', serif;
   font-family: 'Open Sans', sans-serif;
   font-size: 30px;
+  color: white;
 }
 
-.sub-second-title {
+.subtitle_second {
   font-family: 'Kaisei Decol', serif;
   font-family: 'Kaisei HarunoUmi', serif;
   font-family: 'Open Sans', sans-serif;
   font-size: 15px;
   margin: 10px;
+}
+
+/**検索バー**/
+.search-bar {
+  text-align: center;
+  width: 800px;
+  height: auto;
+  margin-top: 20px;
+}
+
+.top-search-form {
+  width: 800px;
+  padding-bottom: 0;
+}
+
+.top-input-box {
+  width: 600px;
+  height: 30px;
+  border-radius: 5px;
+  border: solid 1px;
+  text-align: center;
+}
+
+.top-search-button {
+  width: 200px;
+  margin-top: 15px;
+}
+
+.top-search-send {
+  width: 200px;
+  margin-top: 15px;
 }
 
 ::placeholder {
@@ -44,24 +71,23 @@
 
 /**投稿一覧**/
 .posts_main {
-  margin: 0 80px 50px 80px;
-  background-color:rgba(255,255,255,0.6);
-	background-blend-mode:lighten;
+  background-color: #e6f0f0;
+  height: 100%;
 }
 
 .posts_lists {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 10px;
-  padding: 50px 0 50px 0;
+  padding: 50px 0;
 }
 
 .post_list {
   text-align: center;
-  margin-bottom: 20px;
-  border-right: dotted 1.5px;
-  border-left: dotted 1.5px;
-  padding: 0%;
+  margin: 20px 50px;
+  padding: 20px 0;
+  background-color:rgba(255,255,255,0.6);
+	background-blend-mode:lighten;
 }
 
 .post-image {
