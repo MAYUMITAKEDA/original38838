@@ -1,7 +1,7 @@
 <%= render "shared/header" %>
 <div class="post-search-contents" id ="detailed-search-result-wrapper">
   <%= search_form_for @q, url: search_posts_path, html: {id: "detailed-search-form"}, class: "search-form" do |f| %>
-  <h2 class="search-form-title">詳細検索</h2>
+  <h2 class="search-form-title">SEARCH</h2>
     <div class="search-field">
       <%= f.label :title, 'タイトル', class: "search-name" %>：
       <%= f.text_field :title, class: "search-title", placeholder: 'タイトルから検索', value: params[:q]&.dig(:title) %>
@@ -11,8 +11,8 @@
       <%= f.collection_check_boxes(:category_id_in, Category.all, :id, :name) %>
     </div>
     <div class="search-field">
-      <%= f.label :budget_id_in, '予算', class: "search-name" %>　　：
-      <%= f.collection_select(:budget_id_in, Budget.all, :id, :name, {include_blank: "-----"}) %>
+      <%= f.label :budget_gteq, '予算', class: "search-name" %>　　：
+      <%= f.number_field :budget_gteq %> 円以上、<%= f.number_field :budget_lteq %> 円以下
     </div>
     <div class="search-field">
       <%= f.label :opening_hour_id_in, '営業時間', class: "search-name" %>：
@@ -22,22 +22,34 @@
       <%= f.submit '検索', class: "search-send"%>
     </div>
   <% end %>
-
-  <ul class="search-lists", id="detailed-search-result">
-    <% @posts.each do |post| %>
-      <li class="search-result-list">
-        <%= link_to post_path(post.id) do %>
-          <%= image_tag post.image, class: "posted-image" %><br>
-          <p class="posted-text">
-          タイトル：<%= post.title %><br>
-          カテゴリ：<%= post.category.name %><br>
-        <% end %>
-          投稿者　：<%= link_to "#{post.user.nickname}", user_path(post.user) %>
-          </p>
-          <p class="posted-date">投稿日：<%= post.created_at.strftime("%Y-%m-%d") %></p>
-      </li>
-    <% end %>
-  </ul>
-  <h3 class="back-top"><%= link_to 'トップページへ戻る', root_path %></h3>
-  <%= render "shared/footer"%>
 </div>
+  <div class="search_main">
+    <div class="search-lists">
+      <% @posts.each do |post| %>
+      <div class="search-result-list">
+        <%= link_to post_path(post.id) do %>
+          <div class="posted__img">
+            <%= image_tag post.image, class: 'posted-image' %>
+          </div>
+          <div class="posted_list_text">
+            <p class="posted_title">
+              タイトル：<%= post.title %>
+            </p>
+            <p class="posted_category">
+              カテゴリ：<%= post.category.name %>
+            </p>
+        <% end %>
+            <p class="posted_nickname">
+              投稿者　：<%= link_to "#{post.user.nickname}", user_path(post.user) %>
+            </p>
+            <p class="posted_created_at">
+              投稿日：<%= post.created_at.strftime("%Y-%m-%d") %>
+            </p>
+          </div>
+      </div>
+      <% end %>
+    </div>
+    <h3 class="back-top"><%= link_to 'Topへ戻る', root_path %></h3>
+  </div>
+
+<%= render "shared/footer"%>

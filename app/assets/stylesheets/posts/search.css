@@ -1,23 +1,30 @@
 /**詳細検索**/
 .search-form-title {
-  font-size: 30px;
-  margin-bottom: 20px;
   width: 100%;
   text-align: center;
+  margin-bottom: 50px;
+  font-size: 30px;
+  color: white;
 }
 
 .post-search-contents{
-  background-image: url("/images/index3.jpg");
+  background-image: url("/images/image9.jpg");
   background-repeat: no-repeat;
   background-size: cover;
+  height: 600px;
+  min-width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 } 
 
 .search-form {
-  padding: 30px 100px 50px 100px;
+  padding: 50px 150px;
 }
 
 .search-field {
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 }
 
 .search-name {
@@ -39,28 +46,27 @@
 }
 
 .search-send {
-  width: 200px;
+  width: 300px;
   margin-bottom: 40px;
 }
 
 /**検索結果表示**/
+.search_main {
+  background-color: #e6f0f0;
+  height: 100%;
+}
+
 .search-lists {
-  /**margin: 50px 80px 50px 80px;
-  background-color:rgba(255,255,255,0.6);
-  background-blend-mode:lighten;**/
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 10px;
-  padding-top: 50px;
+  padding-top: 50px 0;
 }
 
 .search-result-list {
   text-align: center;
-  /**margin-bottom: 20px;**/
-  /**border-right: dotted 1.5px;
-  border-left: dotted 1.5px;**/
   padding: 20px 0;
-  margin: 20px 50px;
+  margin: 50px;
   background-color:rgba(255,255,255,0.6);
   background-blend-mode:lighten;
 }
@@ -71,20 +77,33 @@
   object-fit: cover;
 }
 
-.posted-date {
+.posted_list_text {
+  width: 300px;
+  margin: auto;
+  text-align: left;
+}
+
+.posted_title {
+  margin-top: 10px;
+}
+
+.posted_category {
+  margin-top: 10px;
+}
+
+.posted_nickname {
+  margin-top: 10px;
+}
+
+
+
+.posted_created_at {
   text-align: right;
-  padding-right: 70px;
-  margin-top: 5px;
+  margin-top: 15px;
 }
 
 .back-top {
   text-align: center;
-  font-size: 20px;
-}
-
-
-.posted-text {
-  text-align: left;
-  margin-top: 10px;
-  padding: 0 70px;
+  font-size: 15px;
+  padding-bottom: 20px;
 }
