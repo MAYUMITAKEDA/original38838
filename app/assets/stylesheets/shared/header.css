@@ -5,11 +5,9 @@
   justify-content: space-between;
   align-items: center;
   position: sticky;
-  background-color: bisque;
 }
 
 .wrapper {
-  /**max-width: 1100px;*/
   margin: 0 auto;
 }
 
@@ -46,6 +44,7 @@
   display: flex;
   justify-content: space-between;
   margin-right: 80px;
+  
 }
 
 li {
