@@ -1,51 +1,48 @@
-<%= form_with model: @post_form, url: posts_path, id: 'new_post', local: true do |f| %>
-  <%= render "shared/error_messages", model: f.object %> 
-      <div class="select-name">
-      カテゴリー
-      </div>
-      <%= f.collection_select(:category_id, Category.all, :id, :name, {}, {class:"select-box"}) %>
-      <div class="select-name">
-      予算
-      </div>
-      <%= f.collection_select(:budget_id, Budget.all, :id, :name, {}, {class:"select-box"}) %>
-      <div class="select-name">
-      営業時間
-      </div>
-      <%= f.collection_select(:opening_hour_id, OpeningHour.all, :id, :name, {}, {class:"select-box"}) %>
-
-      <div class ="field">
-      <%= f.label :title, "タイトル" %><br />
-      <%= f.text_field :title, maxlength: "50" %>
-      </div>
-
-      <div class="field">
-      <%= f.label :text, "詳細" %><br />
-      <%= f.text_area :text, maxlength: "2000" %>
-      </div>
-      
-      <div class="field">
-      <%= f.label :address, "住所" %><br />
-      <%= f.text_field :address %>
-      </div>
-
-      <div class="tag-field">
-      <%= f.label :tag_name, "タグ" %><br />
-      <%= f.text_field :tag_name %>
-      </div>
-
-      <div class="image-field">
-        <div id="previews"></div>
-         <div class="click-upload">
-            <%= f.file_field :image %>
+<div class="posts_form">
+   <%= form_with model: @post_form, url: posts_path, local: true do |f| %>
+      <%= render "shared/error_messages", model: f.object, class: "posts-form-error" %>
+      <div class="post__form">    
+         <div class ="post_field">
+         <p class ="select-name">タイトル（50字以内）</p>
+         <%= f.text_field :title, maxlength: "50", class: "new__title" %>
          </div>
-      </div>   
-      <br>
 
-      <div class="submit-btn">
-      <%= f.submit "投稿する" %>
-      </div>
+         <div class="post_text_field">
+         <p class="select-name">詳細（2000字以内）</p>
+         <%= f.text_area :text, maxlength: "2000", class: "new__text" %>
+         </div>
+         
+         <div class="post_field">
+         <p class="select-name">住所</p>
+         <%= f.text_field :address, class: "new__address" %>
+         </div>
 
-      <div class="back-top">
-      <%= link_to 'Topへ戻る', root_path %>
+         <div class="post_select">
+         <p class="select-name">エリア</p>
+            <%= f.collection_select(:area_id, Area.all, :id, :name, {include_blank: '--- 全てのエリア ---'}, class:"select-box") %>
+            <p class="select-name">カテゴリー</p>
+            <%= f.collection_select(:category_id, Category.all, :id, :name, {include_blank: '-----'}, class:"select-box") %>
+            <p class="select-name">予算</p>
+            <%= f.text_field :budget, class: "new__budget" %>
+            <p class="select-name">営業時間</p>
+            <%= f.collection_select(:opening_hour_id, OpeningHour.all, :id, :name, {include_blank: '-----'}, class:"select-box") %>
+         </div>
+
+         <div class="post_tag_field">
+            <p class="select-name">タグ</p>
+            <%= f.text_field :tag_name, class:"post__tag" %>
+         </div>
+
+         <div class="post_image_field">
+         <div id="previews"></div>
+            <p class="select-name">画像を添付してください</p>
+            <%= f.file_field :image, class: "new__image"%>
+         </div>   
+         <br>
+
+         <div class="post_action">
+         <%= f.submit "投稿する", class: "post-submit-btn" %>
+         </div>
       </div>
-<% end %>
+      <% end %>
+</div>

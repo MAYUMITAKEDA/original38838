@@ -1,0 +1,85 @@
+.posts_form {
+  width: 600px;
+  background-color:rgba(255,255,255,0.6);
+	background-blend-mode:lighten;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 25px 0;
+}
+
+
+
+.select-name {
+  padding: 10px;
+}
+
+.post_field {
+  width: 425px;
+  height: 50px;
+  
+}
+
+.new__title {
+  width: 425px;
+}
+
+.post_text_field {
+  width: 425px;
+  height: 200px;
+  margin: 20px 0;
+}
+
+.new__text {
+  width: 425px;
+  height: 160px;
+  resize: none;
+}
+
+.new__address {
+  width: 425px;
+}
+
+.post_select {
+  width: 425px;
+  text-align: right;
+  margin-top: 20px;
+}
+
+.new__budget {
+  text-align: right;
+  width: 200px;
+}
+
+.select-box {
+  width: 200px;
+  text-align: center;
+}
+
+
+.post_tag_field {
+  text-align: right;
+  width: 425px;
+  margin-top: 5px;
+}
+
+.post__tag {
+  width: 200px;
+  text-align: center;
+}
+
+.post_image_field {
+  text-align: right;
+  width: 425px;
+  margin: 20px;
+}
+
+.new__image {
+  width: 250px;
+  text-align: center;
+}
+
+.post-submit-btn {
+  width: 425px;
+}
