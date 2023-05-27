@@ -1,83 +1,150 @@
-
-.main {
-  background-image: url("/images/index.jpg");
+.post_show {
+  background-image: url("/images/image14.jpg");
   background-repeat: no-repeat;
   background-size: cover;
-  min-height: 100vh;
   min-width: 100vw;
 }
 
-.post_main {
+.post_shows {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
-.post_main_title {
+.post_shows_title {
   font-size: 30px;
-  margin-top: 20px;
+  margin-bottom: 20px;
   text-align: center;
+
 }
 
+/**いいね機能**/
 .user_likes {
   text-align: center;
   margin: 20px;
 }
 
+
+/**編集・削除**/
+.post_manage {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  border-radius: 2px;
+  
+}
+
+.post_manage_btn {
+  width: 100px;
+  text-align: center;
+  margin: 10px;
+  border: solid 2px;
+  height: auto;
+}
+
 /**投稿詳細メイン**/
-.post_show_main {
-  width: 1000px;
+.post_shows_main {
+  width: 1100px;
+  height: auto;
   display: flex;
   justify-content: center;
   margin: 50px;
-  padding: 30px;
-  background-color:rgba(255,255,255,0.6);
+  padding: 20px 10px;
+  background-color:rgba(255, 255, 255, 0.63);
 	background-blend-mode:lighten;
 }
 
 /**画像**/
-
+.post-show-img {
+  width: 400px;
+  height: 400px;
+  object-fit: cover;
+  margin: auto;
+  margin-left: 50px;
+}
 
 /**文書コンテンツ**/
-.post_text_field {
-  width: 100%;
+.post_text_main {
+  width: 50%;
+  height: auto;
+  margin: 5px auto;
 }
 
-.post_main_detail {
-  border-bottom: 2px solid;
+.post_text__contents {
+  height: auto;
+  padding: 5px 20px;
+  border-top: dotted 1px;
+  border-bottom: dotted 1px;
 }
-/**いいね**/
 
+.post_shows_field {
+  margin: -5px;
+  list-style-type: disc;
+  
+}
+
+.post_shows_text_field {
+  height: auto;
+  margin: 5px 0;
+}
+
+.post_show_text {
+  padding: 10px;
+}
+
+.post_show_foot_field {
+  text-align: right;
+  padding: 0%;
+}
+
+/**コメントメイン**/
+.comment_main {
+  display: flex;
+  margin-top: 50px;
+}
 
 /**コメント入力欄**/
 .comment_field {
   text-align: center;
+  margin-right: 10px;
 }
 
 .comment-text {
   width: 500px;
-  height: 180px;
+  height: 200px;
   resize: none;
 }
 .comment_action {
   text-align: center;
 }
 
+.comment-btn {
+  width: 200px;
+  height: 30px;
+  margin-top: 10px;
+}
+
 /**コメント一覧**/
+.comments_result_main {
+  margin-left: 10px;
+}
+
 .user_comment {
   text-align: center;
-  margin-top: 20px;
+  margin: 20px 0;
 }
 .comment_result {
   border-width: 1px;
   border-style: solid;
   overflow: scroll;
+  background-color: white;
   height: 200px;
   width: 500px;
-  margin: 0 300px 0 300px;
-  padding: 20px;
-
+  margin: auto;
+  padding: 20px 10px;
 }
 
 .user_comment_text {
@@ -85,8 +152,8 @@
 
 }
 
-.btn_contents {
+.post_show_btn {
   text-align: center;
-  
+  padding: 30px;
 }
 
