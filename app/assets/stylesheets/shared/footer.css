@@ -1,11 +1,9 @@
 .footer {
   height: 50px;
-  margin-top: 20px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: bisque;
 }
 
 .footer-logo {
