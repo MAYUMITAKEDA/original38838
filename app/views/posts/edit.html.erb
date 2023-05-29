@@ -1,10 +1,10 @@
 <%= render "shared/header" %>
 <div class="post_new">
   <div class="post_new_main">
-    <p class="post-new-title">編集する</p>
+    <p class="post-new-title">Edit my post</p>
     <%= render partial: "form" %>
     <div class="post_new_btn">
-    <%= link_to 'Topへ戻る', root_path, class: "back_btn" %>
+    <%= link_to '戻る', post_path(@post.id), class: "back_btn" %>
   </div>
   </div>
 </div>
