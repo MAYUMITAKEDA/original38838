@@ -3,6 +3,9 @@
   width: 100%;
   text-align: center;
   margin-bottom: 50px;
+  font-family: 'Kaisei Decol', serif;
+  font-family: 'Kaisei HarunoUmi', serif;
+  font-family: 'Open Sans', sans-serif;
   font-size: 30px;
   color: white;
 }
@@ -17,6 +20,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  color: white;
 } 
 
 .search-form {
@@ -29,6 +33,7 @@
 
 .search-name {
   margin-bottom: 5px;
+  font-size: 15px;
 }
 
 .search-title {
@@ -46,8 +51,8 @@
 }
 
 .search-send {
-  width: 300px;
-  margin-bottom: 40px;
+  width: 500px;
+  margin: 50px 0 30px 0;
 }
 
 /**検索結果表示**/
@@ -105,5 +110,5 @@
 .back-top {
   text-align: center;
   font-size: 15px;
-  padding-bottom: 20px;
+  padding: 20px 0 30px 0;
 }

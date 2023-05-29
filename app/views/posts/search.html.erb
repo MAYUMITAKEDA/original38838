@@ -1,7 +1,7 @@
 <%= render "shared/header" %>
 <div class="post-search-contents" id ="detailed-search-result-wrapper">
   <%= search_form_for @q, url: search_posts_path, html: {id: "detailed-search-form"}, class: "search-form" do |f| %>
-  <h2 class="search-form-title">SEARCH</h2>
+  <h2 class="search-form-title">Find your special trip</h2>
     <div class="search-field">
       <%= f.label :title, 'タイトル', class: "search-name" %>：
       <%= f.text_field :title, class: "search-title", placeholder: 'タイトルから検索', value: params[:q]&.dig(:title) %>
