@@ -10,6 +10,9 @@
         <div id="like-<%= @post.id %>", class="user_likes">
           いいね：<%= render partial: "likes/like", locals: {post: @post} %>
         </div>
+        <div class="post_show_foot_field">
+          投稿者：<%= link_to "#{@post.user.nickname}", user_path(@post.user) %>
+        </div>
         <ul class="post_text__contents">
           <li class="post_shows_field">
             カテゴリー：<%= @post.category.name %>
@@ -38,9 +41,6 @@
           </div>
           <ul class="post_show_foot">
             <li class="post_show_foot_field">
-            投稿者：<%= @post.user.nickname %>
-            </li>
-            <li class="post_show_foot_field">
             投稿日：<%= @post.created_at.strftime("%Y-%m-%d") %>
             </li>
             <li class="post_show_foot_field">
@@ -52,15 +52,15 @@
     <div class="post_manage">
       <% if user_signed_in? && current_user.id == @post.user_id %>
         <div class= "post_manage_btn">
-        <%= link_to "編集", edit_post_path(@post.id) %>
+        <%= link_to "編集", edit_post_path(@post.id), class: "manage-btn" %>
         </div>
         <div class="post_manage_btn">
-        <%= link_to "削除", post_path(@post.id), method: :delete %>
+        <%= link_to "削除", post_path(@post.id), method: :delete, class: "manage-btn" %>
         </div>
       <% end %>
     </div>
     <div class="comment_main">
-      <div class="comments_form_main">
+      <div class="comment-form">
         <% if user_signed_in? %>
           <%= form_with model: [@post, @comment], id: "comment-form", local: true do |f| %>
             <div class="comment_field">

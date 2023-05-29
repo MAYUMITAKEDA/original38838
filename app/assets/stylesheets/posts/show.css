@@ -34,15 +34,23 @@
   justify-content: center;
   font-size: 15px;
   border-radius: 2px;
-  
 }
 
 .post_manage_btn {
   width: 100px;
+  height: 30px;
   text-align: center;
   margin: 10px;
-  border: solid 2px;
-  height: auto;
+  padding: 5px;
+  border: solid 2px gray;
+  border-radius: 5px;
+background-color: antiquewhite;
+}
+
+.manage-btn {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 /**投稿詳細メイン**/
@@ -98,6 +106,7 @@
 .post_show_foot_field {
   text-align: right;
   padding: 0%;
+  margin-bottom: 5px;
 }
 
 /**コメントメイン**/
