@@ -35,8 +35,11 @@
 
          <div class="post_image_field">
          <div id='previews'></div>
-            <p class="select-name">画像を添付してください</p>
-            <%= f.file_field :image %>
+            <p class="select-name">画像を添付してください（最大5
+            枚まで）</p>
+            <div class="click-upload">
+            <%= f.file_field :images, name: 'post_form[images][]', data: {index: 0} %>
+            </div>
          </div>   
          <br>
 

@@ -2,7 +2,12 @@
 <div class="post_show">
   <div class="post_shows">
     <div class="post_shows_main">    
-      <%= image_tag @post.image, class: "post-show-img" %>
+      <div class="other-images">
+        <%= image_tag @post.images[0], class: "post-show-img" %>
+        <% @post.images[1..-1].each do |image| %>
+            <%= image_tag image, class: "post-show-img" %>
+        <% end %>
+      </div>
       <div class="post_text_main">      
         <div class="post_shows_title">
           <%= @post.title %>

@@ -75,10 +75,24 @@
   margin: 20px;
 }
 
-.preview-image {
-  width: 200px;
-  height: 150px;
+.post_form_images {
+  margin-top: 5px;
 }
+
+#previews {
+  text-align: right;
+}
+
+.preview-image {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+}
+
+.click-upload {
+  text-align: right;
+}
+
 
 .post-submit-btn {
   width: 425px;

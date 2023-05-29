@@ -66,6 +66,12 @@ background-color: antiquewhite;
 }
 
 /**画像**/
+.other-images {
+  width: 400px;
+  display: flex;
+  overflow-x: scroll;
+}
+
 .post-show-img {
   width: 400px;
   height: 400px;
