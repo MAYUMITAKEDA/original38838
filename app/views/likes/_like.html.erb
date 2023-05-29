@@ -1,11 +1,11 @@
 <% if user_signed_in? %>
   <% if Like.find_by(user_id: current_user.id, post_id: post.id) %>
-    <%= link_to post_like_path(post, post.likes), method: :delete, remote: true, class: "likes-count" do %>
+    <%= link_to post_like_path(post, post.likes), method: :delete, class: "likes-count", remote: true do %>
     <i class="fas fa-heart heart-red"></i>
     <%= post.likes.count %>
     <% end %>
     <% else %>
-    <%= link_to post_likes_path(post), method: :post, remote: true, class: "likes-count" do %>
+    <%= link_to post_likes_path(post), method: :post, class: "likes-count", remote: true do %>
     <i class="far fa-heart"></i>
     <%= post.likes.count%>
     <% end %>
