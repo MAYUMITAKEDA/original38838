@@ -75,9 +75,9 @@
   margin: 20px;
 }
 
-.new__image {
-  width: 250px;
-  text-align: center;
+.preview-image {
+  width: 200px;
+  height: 150px;
 }
 
 .post-submit-btn {
