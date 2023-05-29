@@ -53,13 +53,15 @@
 
 /**フォロー機能**/
 .user_follow {
-  border: solid 1px;
+  width: 200px;
   height: 30px;
-  width: 120px;
-  margin: 10px auto;
-  padding: 5px 22px;
+  text-align: center;
+  padding: 5px 0;
+  margin: 20px auto;
+  border: solid 2px gray;
   border-radius: 5px;
   background-color: rgb(230, 212, 172);
+  font-size: 15px;
 }
 
 /**ユーザー投稿一覧**/

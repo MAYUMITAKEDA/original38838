@@ -1,19 +1,19 @@
 <% if user_signed_in? %>
   <% if Like.find_by(user_id: current_user.id, post_id: post.id) %>
     <%= link_to post_like_path(post, post.likes), method: :delete, class: "likes-count", remote: true do %>
-    <i class="fas fa-heart heart-red"></i>
-    <%= post.likes.count %>
+    <p>いいね：<i class="fas fa-heart heart-red"></i>
+    <%= post.likes.count %></p>
     <% end %>
     <% else %>
     <%= link_to post_likes_path(post), method: :post, class: "likes-count", remote: true do %>
-    <i class="far fa-heart"></i>
-    <%= post.likes.count%>
+    <p>いいね：<i class="far fa-heart"></i>
+    <%= post.likes.count%></p>
     <% end %>
   <% end %>
 <% else %>
   <% if Like.find_by(post_id: post.id) %>
-  <i class="fas fa-heart heart-red"></i><%= post.likes.count %>
+  <p>いいね：<i class="fas fa-heart heart-red"></i><%= post.likes.count %></p>
   <% else %>
-  <i class="far fa-heart"></i><%= post.likes.count %>
+  <p>いいね：<i class="far fa-heart"></i><%= post.likes.count %></p>
   <% end %>
 <% end %>

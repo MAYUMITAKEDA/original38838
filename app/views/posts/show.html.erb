@@ -8,7 +8,7 @@
           <%= @post.title %>
         </div>
         <div id="like-<%= @post.id %>", class="user_likes">
-          いいね：<%= render partial: "likes/like", locals: {post: @post} %>
+          <%= render partial: "likes/like", locals: {post: @post} %>
         </div>
         <div class="post_show_foot_field">
           投稿者：<%= link_to "#{@post.user.nickname}", user_path(@post.user) %>
