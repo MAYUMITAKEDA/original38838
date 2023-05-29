@@ -21,6 +21,7 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  margin: 30px 0;
   border-bottom: 2px dotted gray;
 }
 
@@ -43,7 +44,7 @@
   text-align: center;
   padding: 5px 0;
   margin: 20px auto;
-  border: solid 0.5px;
+  border: solid 2px gray;
   border-radius: 5px;
   background-color: rgb(230, 212, 172);
   font-size: 15px;
@@ -54,14 +55,11 @@
 .user_follow {
   border: solid 1px;
   height: 30px;
-  width: 100px;
-  margin: auto;
-  padding: 5px;
-  background-color: skyblue
-}
-
-.follow_btn {
-  height: 20px;
+  width: 120px;
+  margin: 10px auto;
+  padding: 5px 22px;
+  border-radius: 5px;
+  background-color: rgb(230, 212, 172);
 }
 
 /**ユーザー投稿一覧**/
