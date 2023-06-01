@@ -16,14 +16,14 @@ if(location.pathname.match(/\/posts\/\d/)){
 
     received(data) {
       const html = `
-        <div class="comment>
-          <p class="user-info">${data.user.nickname}: </p>
+        <div class="comment">
+          <p class="user_info">${data.user.nickname}:　</p>
           <p>${data.comment.text}</p>
         </div>`
       const comments = document.getElementById("comments")
       comments.insertAdjacentHTML('beforeend', html)
       const commentForm = document.getElementById("comment-form")
-      commentForm.requestFullscreen();
+      commentForm.reset();
     }
   })
 }

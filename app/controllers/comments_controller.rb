@@ -4,10 +4,6 @@ class CommentsController < ApplicationController
     @post = Post.find(params[:post_id])
     if @comment.save
       CommentChannel.broadcast_to @post, { comment: @comment, user: @comment.user }
-    else
-      @post = @comment.post
-      @comments = @post.comments
-      render "posts/show"
     end
   end
 

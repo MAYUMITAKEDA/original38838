@@ -108,60 +108,73 @@ background-color: antiquewhite;
   margin-bottom: 5px;
 }
 
-/**コメントメイン**/
-.comment_main {
+/**コメント機能**/
+.comment-contents {
+  width: 100%;
   display: flex;
+  justify-content: center;
+  align-items: center;
   margin-top: 50px;
 }
 
-/**コメント入力欄**/
-.comment_field {
-  text-align: center;
-  margin-right: 10px;
+.comment-form{
+  display: flex;
+  width: 400px;
+  height: 100px;
+  margin-right: 40px;
+  
 }
 
-.comment-text {
-  width: 500px;
-  height: 200px;
+.comment-text{
+  display: block;
+  width: 400px;
+  height: 100px;
+  margin-top: 20px;
   resize: none;
 }
-.comment_action {
-  text-align: center;
-}
 
-.comment-btn {
-  width: 200px;
-  height: 30px;
-  margin-top: 10px;
-}
-
-/**コメント一覧**/
-.comments_result_main {
-  margin-left: 10px;
-}
-
-.user_comment {
-  text-align: center;
-  margin: 20px 0;
-}
-.comment_result {
-  border-width: 1px;
-  border-style: solid;
-  overflow: scroll;
-  background-color: white;
-  height: 200px;
-  width: 500px;
+.comment-submit{
+  display: block;
   margin: auto;
-  padding: 20px 10px;
+  margin-top: 20px;
 }
 
-.user_comment_text {
-  text-align: center;
+.comments {
+  width: 200px;
+}
 
+.comment-result-form {
+flex-direction: column;
+}
+
+.comments-list {
+  text-align: center;
+}
+
+.comments-result {
+  margin-top: 20px;
+  padding: 10px 30px;
+  width: 400px;
+  height: 100px;
+  overflow: scroll;
+  border: solid 1px;
+}
+
+.comment{
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.user_info a{
+  width: auto;
+  white-space: nowrap;
+  color: gray;
+  font-weight: bold;
 }
 
 .post_show_btn {
   text-align: center;
+  margin-top: 100px;
   padding: 30px;
 }
 

@@ -64,29 +64,26 @@
         </div>
       <% end %>
     </div>
-    <div class="comment_main">
+    <div class="comment-contents">
       <div class="comment-form">
         <% if user_signed_in? %>
-          <%= form_with model: [@post, @comment], id: "comment-form", local: true do |f| %>
-            <div class="comment_field">
-              <h2 class="user_comment">コメントする</h2>
+          <%= form_with model: [@post, @comment], id: "comment-form" do |f| %>
               <%= f.text_area :text, class: "comment-text" %>
-            </div>
-            <div class="comment_action">
-              <%= f.submit "送信", class: "comment-btn" %>
-            </div>
+              <%= f.submit "コメントする", class: "comment-submit" %>
           <% end %>
         <% end %>
       </div>
-      <div class="comments_result_main">
-      <h2 class="user_comment">コメント一覧</h2>
-        <div id="comments", class="comment_result">
-          <% @post.comments.each do |comment| %>
-            <div class="user_comment_text">
-              <p><%= link_to comment.user.nickname, user_path(comment.user) %>:<%= comment.text%></p>
-            </div>
-            <br />
-          <% end %>
+      <div class="comment-result-form">
+        <h4 class="comments-list">【コメント一覧】</h4>
+        <div class="comments-result">
+          <div id="comments">
+            <% @post.comments.each do |comment| %>
+              <div class="comment">
+                <p class="user_info"><%= link_to comment.user.nickname, user_path(comment.user) %>：</p>
+                <p><%= comment.text%></p>
+              </div>
+            <% end %>
+          </div>
         </div>
       </div>
     </div>
