@@ -7,9 +7,8 @@ class OpeningHour < ActiveHash::Base
     { id: 5, name: '夕方' },
     { id: 6, name: '夜' },
     { id: 7, name: '深夜' }
-  ] 
+  ]
 
   include ActiveHash::Associations
   has_many :posts
-
 end

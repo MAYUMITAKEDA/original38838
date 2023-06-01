@@ -6,7 +6,6 @@ class UsersController < ApplicationController
   end
 
   def edit
-    
   end
 
   def update
@@ -29,6 +28,7 @@ class UsersController < ApplicationController
 
   def move_to_index
     return if user_signed_in? && current_user.id == @user.id
+
     redirect_to root_path
   end
 end

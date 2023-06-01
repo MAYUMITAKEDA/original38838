@@ -2,11 +2,11 @@ class PostForm
   include ActiveModel::Model
 
   attr_accessor(
-    :title, :text, :address, :images, 
-    :category_id, :budget, :opening_hour_id, 
+    :title, :text, :address, :images,
+    :category_id, :budget, :opening_hour_id,
     :id, :created_at, :updated_at,
     :user_id, :tag_name, :area_id
-  ) 
+  )
 
   with_options presence: true do
     validates :title, length: { maximum: 50 }
@@ -21,12 +21,13 @@ class PostForm
   validates :images, length: { minimum: 1, maximum: 5, message: 'must be one or no more than five' }
 
   def save
-    post = Post.create(title: title, text: text, address: address, images: images, category_id: category_id, budget: budget, opening_hour_id: opening_hour_id, user_id: user_id, area_id: area_id)
-    if tag_name.present?
-      tag = Tag.where(tag_name: tag_name).first_or_initialize
-      tag.save
-      PostTagRelation.create(post_id: post.id, tag_id: tag.id)
-    end
+    post = Post.create(title: title, text: text, address: address, images: images, category_id: category_id, budget: budget,
+                       opening_hour_id: opening_hour_id, user_id: user_id, area_id: area_id)
+    return unless tag_name.present?
+
+    tag = Tag.where(tag_name: tag_name).first_or_initialize
+    tag.save
+    PostTagRelation.create(post_id: post.id, tag_id: tag.id)
   end
 
   def update(params, post)

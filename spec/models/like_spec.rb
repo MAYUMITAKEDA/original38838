@@ -20,12 +20,12 @@ RSpec.describe Like, type: :model do
       it 'postが紐づいていなければ「いいね」できない' do
         @like.post = nil
         @like.valid?
-        expect(@like.errors.full_messages).to include("Post must exist")
+        expect(@like.errors.full_messages).to include('Post must exist')
       end
       it 'userが紐づいていなければ「いいね」できない' do
         @like.user = nil
         @like.valid?
-        expect(@like.errors.full_messages).to include("User must exist")
+        expect(@like.errors.full_messages).to include('User must exist')
       end
     end
   end

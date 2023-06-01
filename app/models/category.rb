@@ -9,9 +9,8 @@ class Category < ActiveHash::Base
     { id: 7, name: '歴史・建造物' },
     { id: 8, name: 'ホテル・宿' },
     { id: 9, name: 'その他' }
-  ] 
+  ]
 
   include ActiveHash::Associations
   has_many :posts
-
 end

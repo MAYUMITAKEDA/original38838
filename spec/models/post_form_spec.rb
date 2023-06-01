@@ -10,7 +10,8 @@ RSpec.describe PostForm, type: :model do
       image3 = Rack::Test::UploadedFile.new(Rails.root.join('spec/fixtures/test3.png'), 'image/png')
       image4 = Rack::Test::UploadedFile.new(Rails.root.join('spec/fixtures/test4.png'), 'image/png')
       image5 = Rack::Test::UploadedFile.new(Rails.root.join('spec/fixtures/test5.png'), 'image/png')
-      @post_form = FactoryBot.build(:post_form, user_id: user.id, tag_name: tag.tag_name, images: [image1, image2, image3, image4, image5])
+      @post_form = FactoryBot.build(:post_form, user_id: user.id, tag_name: tag.tag_name,
+                                                images: [image1, image2, image3, image4, image5])
     end
 
     context '新規投稿ができるとき' do
@@ -32,7 +33,7 @@ RSpec.describe PostForm, type: :model do
       it 'titleが51文字以上では投稿できない' do
         @post_form.title = Faker::Lorem.characters(number: 51)
         @post_form.valid?
-        expect(@post_form.errors.full_messages).to include("Title is too long (maximum is 50 characters)")
+        expect(@post_form.errors.full_messages).to include('Title is too long (maximum is 50 characters)')
       end
       it 'textが空では投稿できない' do
         @post_form.text = ''
@@ -42,7 +43,7 @@ RSpec.describe PostForm, type: :model do
       it 'textが2001以上では投稿できない' do
         @post_form.text = Faker::Lorem.characters(number: 2001)
         @post_form.valid?
-        expect(@post_form.errors.full_messages).to include("Text is too long (maximum is 2000 characters)")
+        expect(@post_form.errors.full_messages).to include('Text is too long (maximum is 2000 characters)')
       end
       it 'addressが空では投稿できない' do
         @post_form.address = ''
@@ -52,7 +53,7 @@ RSpec.describe PostForm, type: :model do
       it 'addressが201字以上では投稿できない' do
         @post_form.address = Faker::Lorem.characters(number: 201)
         @post_form.valid?
-        expect(@post_form.errors.full_messages).to include("Address is too long (maximum is 200 characters)") 
+        expect(@post_form.errors.full_messages).to include('Address is too long (maximum is 200 characters)')
       end
       it 'imagesが添付されていない場合、投稿できない' do
         @post_form.images = nil
@@ -65,7 +66,7 @@ RSpec.describe PostForm, type: :model do
         end
         @post_form.images = images
         @post_form.valid?
-        expect(@post_form.errors.full_messages).to include("Images must be one or no more than five")
+        expect(@post_form.errors.full_messages).to include('Images must be one or no more than five')
       end
       it 'category_idが空では投稿できない' do
         @post_form.category_id = ''
@@ -73,7 +74,7 @@ RSpec.describe PostForm, type: :model do
         expect(@post_form.errors.full_messages).to include("Category can't be blank")
       end
       it 'budgetが空では投稿できない' do
-        @post_form.budget= ''
+        @post_form.budget = ''
         @post_form.valid?
         expect(@post_form.errors.full_messages).to include("Budget can't be blank")
       end
@@ -90,7 +91,7 @@ RSpec.describe PostForm, type: :model do
       it 'userが紐づいていなければ投稿できない' do
         @post_form.user_id = nil
         @post_form.valid?
-        expect(@post_form.errors.full_messages).to include("User must exist")
+        expect(@post_form.errors.full_messages).to include('User must exist')
       end
     end
   end

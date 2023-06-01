@@ -21,7 +21,7 @@ RSpec.describe Post, type: :model do
       it 'titleが51文字以上では投稿できない' do
         @post.title = Faker::Lorem.characters(number: 51)
         @post.valid?
-        expect(@post.errors.full_messages).to include("Title is too long (maximum is 50 characters)")
+        expect(@post.errors.full_messages).to include('Title is too long (maximum is 50 characters)')
       end
       it 'textが空では投稿できない' do
         @post.text = ''
@@ -31,7 +31,7 @@ RSpec.describe Post, type: :model do
       it 'textが2001以上では投稿できない' do
         @post.text = Faker::Lorem.characters(number: 2001)
         @post.valid?
-        expect(@post.errors.full_messages).to include("Text is too long (maximum is 2000 characters)")
+        expect(@post.errors.full_messages).to include('Text is too long (maximum is 2000 characters)')
       end
       it 'addressが空では投稿できない' do
         @post.address = ''
@@ -41,7 +41,7 @@ RSpec.describe Post, type: :model do
       it 'addressが201字以上では投稿できない' do
         @post.address = Faker::Lorem.characters(number: 201)
         @post.valid?
-        expect(@post.errors.full_messages).to include("Address is too long (maximum is 200 characters)") 
+        expect(@post.errors.full_messages).to include('Address is too long (maximum is 200 characters)')
       end
       it 'imageが添付されていない場合、投稿できない' do
         @post.image = nil
@@ -81,7 +81,7 @@ RSpec.describe Post, type: :model do
       it 'userが紐づいていなければ投稿できない' do
         @post.user = nil
         @post.valid?
-        expect(@post.errors.full_messages).to include("User must exist")
+        expect(@post.errors.full_messages).to include('User must exist')
       end
     end
   end

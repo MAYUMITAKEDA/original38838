@@ -2,9 +2,9 @@ class CommentsController < ApplicationController
   def create
     @comment = Comment.new(comment_params)
     @post = Post.find(params[:post_id])
-    if @comment.save
-      CommentChannel.broadcast_to @post, { comment: @comment, user: @comment.user }
-    end
+    return unless @comment.save
+
+    CommentChannel.broadcast_to @post, { comment: @comment, user: @comment.user }
   end
 
   private

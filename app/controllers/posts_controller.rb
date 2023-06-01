@@ -7,7 +7,7 @@ class PostsController < ApplicationController
   def index
     @posts = Post.all.order(created_at: :desc)
   end
-  
+
   def new
     @post_form = PostForm.new
   end
@@ -15,7 +15,7 @@ class PostsController < ApplicationController
   def create
     if @post_form.valid?
       @post_form.save
-      redirect_to root_path      
+      redirect_to root_path
     else
       render :new
     end
@@ -34,14 +34,14 @@ class PostsController < ApplicationController
 
   def update
     @post_form.image ||= @post.image.blob
-    if @post_form.valid? 
+    if @post_form.valid?
       @post_form.update(post_form_params, @post)
       redirect_to post_path
     else
       render :edit
     end
   end
-  
+
   def destroy
     if @post.destroy
       redirect_to root_path
@@ -53,7 +53,7 @@ class PostsController < ApplicationController
   def search
     if params[:q]&.dig(:title)
       squished_keywords = params[:q][:title].squish
-      params[:q][:title_cont_any] = squished_keywords.split(" ")
+      params[:q][:title_cont_any] = squished_keywords.split(' ')
     end
     @q = Post.ransack(params[:q])
     @posts = @q.result
@@ -62,7 +62,8 @@ class PostsController < ApplicationController
   private
 
   def post_form_params
-    params.require(:post_form).permit(:title, :text, :address, :category_id, :budget, :opening_hour_id, :tag_name, :area_id, {images: []}).merge(user_id: current_user.id)
+    params.require(:post_form).permit(:title, :text, :address, :category_id, :budget, :opening_hour_id, :tag_name, :area_id,
+                                      { images: [] }).merge(user_id: current_user.id)
   end
 
   def set_post
