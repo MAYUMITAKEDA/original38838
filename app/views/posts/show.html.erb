@@ -12,7 +12,7 @@
         <div class="post_shows_title">
           <%= @post.title %>
         </div>
-        <div id="like-<%= @post.id %>", class="user_likes">
+        <div id="like-btn<%= @post.id %>">
           <%= render partial: "likes/like", locals: {post: @post} %>
         </div>
         <div class="post_show_foot_field">

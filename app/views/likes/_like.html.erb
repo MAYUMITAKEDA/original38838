@@ -1,19 +1,12 @@
-<% if user_signed_in? %>
-  <% if Like.find_by(user_id: current_user.id, post_id: post.id) %>
-    <%= link_to post_like_path(post, post.likes), method: :delete, class: "likes-count", remote: true do %>
-    <p>いいね：<i class="fas fa-heart heart-red"></i>
-    <%= post.likes.count %></p>
-    <% end %>
-    <% else %>
-    <%= link_to post_likes_path(post), method: :post, class: "likes-count", remote: true do %>
-    <p>いいね：<i class="far fa-heart"></i>
-    <%= post.likes.count%></p>
-    <% end %>
+<div class="likes">いいね：
+<% if user_signed_in? && post.liked_by?(current_user)%>
+  <%=link_to post_likes_path(post.id),  method: :delete, class: "post_likes" , remote: true do %>
+  <i class="fa-solid fa-heart", style="color:pink;"></i>
   <% end %>
 <% else %>
-  <% if Like.find_by(post_id: post.id) %>
-  <p>いいね：<i class="fas fa-heart heart-red"></i><%= post.likes.count %></p>
-  <% else %>
-  <p>いいね：<i class="far fa-heart"></i><%= post.likes.count %></p>
+  <%=link_to post_likes_path(post.id), method: :post, class: "post_likes" , remote: true do %>
+  <i class="fa-regular fa-heart", style="color:black;"></i>
   <% end %>
 <% end %>
+<p class ="likes_count"><%= post.likes.count %></p>
+</div>

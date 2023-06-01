@@ -8,10 +8,6 @@ require("@rails/ujs").start()
 require("@rails/activestorage").start()
 require("channels")
 require('../preview')
-require('jquery')
-import '@fortawesome/fontawesome-free/js/all';
-
-
 
 
 

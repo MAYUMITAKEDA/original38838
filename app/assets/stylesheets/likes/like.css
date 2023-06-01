@@ -1,9 +1,8 @@
-.heart-red {
-  color: lightpink;
-  font-size: 15px;
+.likes {
+  display: flex;
 }
 
-.likes-count {
-  color: black;
-  font-size: 15px;
+.likes_count {
+  margin: 0;
+  padding-left: 5px;
 }

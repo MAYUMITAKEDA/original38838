@@ -19,13 +19,6 @@
 
 }
 
-/**いいね機能**/
-.user_likes {
-  text-align: center;
-  margin: 20px;
-}
-
-
 /**編集・削除**/
 .post_manage {
   width: 100%;
