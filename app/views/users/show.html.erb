@@ -39,7 +39,7 @@
         <div class="user_post__lists">
           <%= link_to post_path(post.id) do %>
           <p class="user_post_img">
-          <%= image_tag post.image.variant(resize: '300x300') %>
+          <%= image_tag post.images[0].variant(resize: '300x300') %>
           </p>
           <p class="user_post_title">タイトル：
           <%= link_to post.title, post_path(post.id) %>
