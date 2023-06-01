@@ -29,7 +29,7 @@
       <div class="search-result-list">
         <%= link_to post_path(post.id) do %>
           <div class="posted__img">
-            <%= image_tag post.image, class: 'posted-image' %>
+            <%= image_tag post.images[0], class: 'posted-image' %>
           </div>
           <div class="posted_list_text">
             <p class="posted_title">
