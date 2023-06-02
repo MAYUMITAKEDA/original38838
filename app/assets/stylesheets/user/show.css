@@ -1,8 +1,6 @@
 
 .user_page {
-  background-image: url("/images/image14.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
+  background-color: #bce5e7;
   min-width: 100vw;
 }
 
@@ -34,7 +32,7 @@
 .user_name {
   font-size: 20px;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-  margin-bottom: 10px;
+  margin-bottom: 30px;
 }
 
 /**編集機能**/
@@ -65,17 +63,13 @@
 }
 
 /**ユーザー投稿一覧**/
-.user_post {
-  margin-top: 30px;
-  font-size: 20px;
-}
 .user_page_row {
   padding-top: 50px;
   width: 80%;
   height: 100vh;
   text-align: center;
   margin: 50px 80px 50px 80px;
-  background-color:rgba(255,255,255,0.6);
+  background-color:rgba(255, 255, 255, 0.885);
 	background-blend-mode:lighten;
 }
 
@@ -119,4 +113,8 @@
 
 .return_top {
   padding: 30px 0;
+}
+
+a,a:visited {
+  color: black;
 }
