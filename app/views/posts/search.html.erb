@@ -18,6 +18,10 @@
       <%= f.label :opening_hour_id_in, '営業時間', class: "search-name" %>：
       <%= f.collection_check_boxes(:opening_hour_id_in, OpeningHour.all, :id, :name) %>
     </div>
+    <div class="search-field">
+      <%= f.label :area_id_in, 'エリア', class: "search-name" %>：
+      <%= f.collection_check_boxes(:area_id_in, Area.all, :id, :name) %>
+    </div>
     <div class="search-send-button">
       <%= f.submit '検索', class: "search-send"%>
     </div>
