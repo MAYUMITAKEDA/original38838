@@ -36,8 +36,8 @@
               カテゴリ：<%= post.category.name %>
             </p>
         <% end %>
-          <p class="post_nickname">
-            投稿者　：<%= link_to "#{post.user.nickname}", user_path(post.user) %>
+          <p class="post_budget">
+            予　算　：<%= post.budget %>円
           </p>
           <p class="post_created_at">
             投稿日：<%= post.created_at.strftime("%Y-%m-%d") %>
