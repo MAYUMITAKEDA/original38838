@@ -1,7 +1,7 @@
 <%= render "shared/header" %>
 <div class="user-edit">
   <div class="user-edit_main">
-  <h1 class="user-edit-title">EDIT MY PAGE</h1>
+  
     <div class="user-edit__form">
       <%= form_with(model: @user, local: true) do |f| %>
         <%= render "shared/error_messages", model: f.object %>

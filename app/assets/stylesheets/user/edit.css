@@ -19,14 +19,6 @@
   padding: 25px 0;
 }
 
-.user-edit-title {
-  text-align: center;
-  font-size: 25px;
-  padding-top: 50px;
-  margin-bottom: 20px;
-}
-
-
 .user-edit__form {
   width: 100%;
   display: flex;

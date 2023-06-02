@@ -1,7 +1,6 @@
   <body>
     <div class="registrations">
       <div class="registrations_main">
-        <div class="registrations_title">Create New Account</div>
           <div class="registrations_form">
             <%= form_with model: @user, url: user_registration_path, local: true do |f| %>
             <%= render "shared/error_messages", model: f.object %>
@@ -32,7 +31,7 @@
             </div>
 
             <div class="registrations_actions">
-              <%= f.submit "Create My Acount", class: "registrations_btn" %>
+              <%= f.submit "新規登録", class: "registrations_btn" %>
             </div>
             <% end %>
           </div>

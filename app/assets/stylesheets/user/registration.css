@@ -9,13 +9,6 @@
   align-items: center;
 }
 
-.registrations_title {
-  font-size: 40px;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  text-align: center;
-  margin-bottom: 20px;
-}
-
 .registrations_main {
   width: 600px;
   border: solid 1px;
@@ -88,14 +81,14 @@
 
 .registrations_actions {
   margin-top: 20px;
+  text-align: center;
 }
 
 .registrations_btn {
+
   width: 200px;
   height: 30px;
-  margin-top: 10px;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  font-size: 20px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial
 }
 
 .field_with_errors {
