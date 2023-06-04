@@ -1,5 +1,5 @@
 <div class="posts_form">
-   <%= form_with model: @post_form, url: posts_path, id: 'new_post', local: true do |f| %>
+   <%= form_with model: @post_form, url: url, method: method, id: 'new_post', local: true do |f| %>
       <%= render "shared/error_messages", model: f.object, class: "posts-form-error" %>
       <!--div class="post__form"-->    
          <div class ="post_field">
@@ -13,7 +13,7 @@
          </div>
          
          <div class="post_field">
-         <p class="select-name">住所</p>
+         <p class="select-name">住所（200字以内）</p>
          <%= f.text_field :address, class: "new__address" %>
          </div>
 
@@ -23,7 +23,7 @@
             <p class="select-name">カテゴリー</p>
             <%= f.collection_select(:category_id, Category.all, :id, :name, {include_blank: '-----'}, class:"select-box") %>
             <p class="select-name">予算</p>
-            <%= f.text_field :budget, class: "new__budget" %>
+            <%= f.text_field :budget, class: "new__budget", placeholder: "¥0〜9,999,999" %>
             <p class="select-name">営業時間</p>
             <%= f.collection_select(:opening_hour_id, OpeningHour.all, :id, :name, {include_blank: '-----'}, class:"select-box") %>
          </div>

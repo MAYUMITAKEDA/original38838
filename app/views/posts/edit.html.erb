@@ -1,7 +1,7 @@
 <%= render "shared/header" %>
 <div class="post_new">
   <div class="post_new_main">
-    <%= render partial: "form" %>
+    <%= render partial: 'form', locals: {url: post_path(@post.id), method: :patch} %>
     <div class="post_new_btn">
     <%= link_to '戻る', post_path(@post.id), class: "back_btn" %>
   </div>
