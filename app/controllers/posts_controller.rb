@@ -33,7 +33,7 @@ class PostsController < ApplicationController
   end
 
   def update
-    @post_form.image ||= @post.image.blob
+    @post_form.images ||= @post.images.blob
     if @post_form.valid?
       @post_form.update(post_form_params, @post)
       redirect_to post_path
@@ -56,7 +56,7 @@ class PostsController < ApplicationController
       params[:q][:title_cont_any] = squished_keywords.split(' ')
     end
     @q = Post.ransack(params[:q])
-    @posts = @q.result
+    @posts = @q.result.order(created_at: :desc)
   end
 
   private
