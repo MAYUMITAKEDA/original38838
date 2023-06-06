@@ -20,6 +20,7 @@ class PostForm
   validates :category_id, :opening_hour_id, :area_id, numericality: { only_integer: true }, allow_blank: true
   validates :images, length: { minimum: 1, maximum: 5, message: 'must be one or no more than five' }
   validates :budget, numericality: { greater_than_or_equal_to: 0, less_than_or_equal_to: 9_999_999, message: 'is out of setting range' }, allow_blank: true
+  validates :tag_name, length: { maximum: 20 }
 
   def save
     post = Post.create(title: title, text: text, address: address, images: images, category_id: category_id, budget: budget,
