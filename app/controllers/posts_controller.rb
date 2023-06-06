@@ -33,7 +33,7 @@ class PostsController < ApplicationController
   end
 
   def update
-    @post_form.images ||= @post.images.blob
+    @post_form.images ||= @post.images.blobs
     if @post_form.valid?
       @post_form.update(post_form_params, @post)
       redirect_to post_path
