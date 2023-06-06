@@ -79,7 +79,7 @@
           <div id="comments">
             <% @post.comments.each do |comment| %>
               <div class="comment">
-                <p class="user_info"><%= link_to comment.user.nickname, user_path(comment.user) %>：</p>
+                <p class="user-info"><%= link_to "#{comment.user.nickname}", user_path(comment.user) %> : </p>
                 <p><%= comment.text%></p>
               </div>
             <% end %>

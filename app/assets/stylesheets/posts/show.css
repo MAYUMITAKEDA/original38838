@@ -165,10 +165,8 @@ flex-direction: column;
   margin-bottom: 10px;
 }
 
-.user_info a{
+.user-info p{
   width: auto;
-  white-space: nowrap;
-  color: gray;
   font-weight: bold;
 }
 

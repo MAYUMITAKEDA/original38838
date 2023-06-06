@@ -18,7 +18,7 @@ RSpec.describe PostForm, type: :model do
       it 'すべての値が正しく入力されているとき' do
         expect(@post_form).to be_valid
       end
-      it 'タグの入力が空でも投稿できる' do
+      it 'tag_nameの入力が空でも投稿できる' do
         @post_form.tag_name = ''
         expect(@post_form).to be_valid
       end
@@ -78,6 +78,16 @@ RSpec.describe PostForm, type: :model do
         @post_form.valid?
         expect(@post_form.errors.full_messages).to include("Budget can't be blank")
       end
+      it 'budgetが10,000,000円以上では投稿できない' do
+        @post_form.budget = '10000000'
+        @post_form.valid?
+        expect(@post_form.errors.full_messages).to include('Budget is out of setting range')
+      end
+      it 'budgetが全角数字の場合は投稿できない' do
+        @post_form.budget = '５００'
+        @post_form.valid?
+        expect(@post_form.errors.full_messages).to include('Budget is invalid. Input half-width characters')
+      end
       it 'opening_hour_idが空では投稿できない' do
         @post_form.opening_hour_id = ''
         @post_form.valid?
@@ -87,6 +97,11 @@ RSpec.describe PostForm, type: :model do
         @post_form.area_id = ''
         @post_form.valid?
         expect(@post_form.errors.full_messages).to include("Area can't be blank")
+      end
+      it 'tag_nameが21文字以上では投稿できない' do
+        @post_form.tag_name = Faker::Lorem.characters(number: 21)
+        @post_form.valid?
+        expect(@post_form.errors.full_messages).to include('Tag name is too long (maximum is 20 characters)')
       end
       it 'userが紐づいていなければ投稿できない' do
         @post_form.user_id = nil
