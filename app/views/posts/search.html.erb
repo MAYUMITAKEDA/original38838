@@ -7,6 +7,10 @@
       <%= f.text_field :title, class: "search-title", placeholder: 'タイトルから検索', value: params[:q]&.dig(:title) %>
     </div>
     <div class="search-field">
+      <%= f.label :tags_tag_name_cont, 'タグ', class: "search-name" %>　　：
+      <%= f.text_field :tags_tag_name_cont, class: "search-title", placeholder: 'タグから検索' %>
+    </div>
+    <div class="search-field">
       <%= f.label :category_id_in, 'カテゴリ', class: "search-name" %>：
       <%= f.collection_check_boxes(:category_id_in, Category.all, :id, :name) %>
     </div>
@@ -19,7 +23,7 @@
       <%= f.collection_check_boxes(:opening_hour_id_in, OpeningHour.all, :id, :name) %>
     </div>
     <div class="search-field">
-      <%= f.label :area_id_in, 'エリア', class: "search-name" %>：
+      <%= f.label :area_id_in, 'エリア', class: "search-name" %>　：
       <%= f.collection_check_boxes(:area_id_in, Area.all, :id, :name) %>
     </div>
     <div class="search-send-button">
