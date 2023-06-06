@@ -1,7 +1,7 @@
 <%= render "shared/header" %>
 <div class="post_new">
   <div class="post_new_main">
-    <%= render partial: 'form', locals: {url: post_path, method: :post} %>
+    <%= render partial: 'form', locals: {url: posts_path, method: :post} %>
     <div class="post_new_btn">
     <%= link_to 'Topへ戻る', root_path, class: "back_btn" %>
   </div>
