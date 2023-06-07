@@ -118,11 +118,7 @@ background-color: antiquewhite;
 }
 
 .comment-form{
-  display: flex;
-  width: 400px;
-  height: 100px;
   margin-right: 40px;
-  
 }
 
 .comment-text{
@@ -149,10 +145,11 @@ flex-direction: column;
 
 .comments-list {
   text-align: center;
+  margin-top: 20px;
 }
 
 .comments-result {
-  margin-top: 20px;
+  margin-top: 10px;
   padding: 10px 30px;
   width: 400px;
   height: 100px;
@@ -165,8 +162,8 @@ flex-direction: column;
   margin-bottom: 10px;
 }
 
-.user-info p{
-  width: auto;
+p.user-info {
+  white-space: nowrap;
   font-weight: bold;
 }
 

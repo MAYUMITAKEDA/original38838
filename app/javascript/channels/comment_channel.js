@@ -17,13 +17,22 @@ if(location.pathname.match(/\/posts\/\d/)){
     received(data) {
       const html = `
         <div class="comment">
-          <p class="user-info">${data.user.nickname} : </p>
+          <p class="user-info"><a href="/users/${data.user.id}">${data.user.nickname}</a>: </p>
           <p>${data.comment.text}</p>
         </div>`
       const comments = document.getElementById("comments")
       comments.insertAdjacentHTML('beforeend', html)
       const commentForm = document.getElementById("comment-form")
       commentForm.reset();
+
+      const userLinks = comments.querySelectorAll(".user-info a");
+      userLinks.forEach((link) => {
+        link.addEventListener("click", (event) => {
+          event.preventDefault();
+          const userUrl = event.target.getAttribute("href");
+          window.location.href = userUrl;
+        });
+      });
     }
   })
 }
