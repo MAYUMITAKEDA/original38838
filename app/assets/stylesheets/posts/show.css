@@ -1,7 +1,5 @@
 .post_show {
-  background-image: url("/images/image14.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
+  background-color: #bce5e7;
   min-width: 100vw;
 }
 
@@ -127,12 +125,18 @@ background-color: antiquewhite;
   height: 100px;
   margin-top: 20px;
   resize: none;
+  border: solid 1px;
+  background-color:rgba(255, 255, 255, 0.63);
 }
 
 .comment-submit{
+  width: 100px;
+  height: 30px;
   display: block;
-  margin: auto;
-  margin-top: 20px;
+  margin: 10px auto;
+  border: solid 2px gray;
+  border-radius: 5px;
+  background-color: antiquewhite;
 }
 
 .comments {
@@ -140,21 +144,23 @@ background-color: antiquewhite;
 }
 
 .comment-result-form {
+  height: 170px;
 flex-direction: column;
 }
 
 .comments-list {
   text-align: center;
-  margin-top: 20px;
+  margin-top: 0;
 }
 
 .comments-result {
-  margin-top: 10px;
-  padding: 10px 30px;
   width: 400px;
   height: 100px;
+  margin-top: 10px;
+  padding: 10px 30px;
   overflow: scroll;
   border: solid 1px;
+  background-color:rgba(255, 255, 255, 0.63);
 }
 
 .comment{
