@@ -1,82 +1,249 @@
-## usersテーブル
+# アプリケーション名
 
-| Colum              | Type   | Options                   |
-| ------------------ | ------ | ------------------------- |
-| nickname           | string | null: false               |
-| email              | string | null: false, unique: true |
-| password           | string | null: false               |
-| encrypted_password | string | null: false               |
+Trip Log
 
-## Associations
-has_many: posts
-has_many: comments
-has_many: favorites
-has_many: follows
-has_many: likes
+</br>
 
-## postsテーブル
+# アプリケーションの概要
 
-| Colum                | Type       | Options                        |
-| -------------------- | ---------- | ------------------------------ |
-| title                | string     | null: false                    |
-| text                 | text       | null: false                    |
-| cost                 | integer    | null: false                    |
-| category_id          | integer    | null: false                    |
-| budget_id            | integer    | null: false                    |
-| opening_hour_id      | integer    | null: false                    |
-| user                 | references | null: false, foreign_key: true |
+旅先の情報を投稿、共有、検索することができます。
 
-## Associations
-belongs_to: user
-has_many: comments
-has_many: favorites
-has_many: likes
-has_many: posts_tag_relations
-has_many: tags
+</br>
 
-## commentsテーブル
+# URL
 
-| Colum | Type       | Options                        |
-| ----- | ---------- | ------------------------------ |
-| text  | text       | null: false                    |
-| user  | references | null: false, foreign_key: true |
-| post  | references | null: false, foreign_key: true |
+https://original38838.onrender.com/
 
-## Associations
-belongs_to: user
-belongs_to: post
+</br>
+
+# テスト用アカウント
+
+・Basic認証ID:furima001
+
+・Basic認証パスワード:furima002
+
+【ユーザーA】
+
+・メールアドレス：user1@a.com
+
+・パスワード：user123
+
+【ユーザーB】
+
+・メールアドレス：user2@a.com
+
+・パスワード：user456
+
+</br>
+
+# 利用方法
+## ユーザー新規登録
+
+・ヘッダーの「CREATE NEW ACCOUNT」ボタンから、ユーザーの新規登録をします。
+
+</br>
+
+## 記事の投稿
+
+・ヘッダーの「NEWPOST」ボタンから、記事の内容を入力します。
+
+・投稿された記事はTopページに一覧表示されます。
+
+</br>
+
+## 記事の検索機能
+・タイトル・カテゴリ・エリア・営業時間・予算・タグから該当する記事を検索することができます。
+
+・1つの項目だけでなく、複数項目で検索をかけることができます。
+
+</br>
+
+## ユーザー間のコミュニケーション
+・投稿済の記事へ「いいね」を送ることができます。
+
+・投稿済の記事へ「コメント」を投稿することができます。
+
+・気になるユーザーがいれば、各ユーザーページに設置されている「フォローする」ボタンを押すことで、該当ユーザーをフォローすることができます。
+
+</br>
+
+# アプリケーションを作成した背景
+旅先での情報収集にあたり、目的地までの移動手段や宿泊先については1つのサイトで情報収集を完結させやすい反面、旅先で何をするかという「体験」については、様々なWEBサイトや旅行ガイドブック等を駆使しないと、中々情報収集がしずらいという不便さがありました。
+
+（例：4〜5年前の投稿記事であり最新の情報が掲載されていない、営業時間や場所は掲載されているが具体的な予算が掲載されていない等）
+
+自分が欲しい滞在先の情報について様々なカテゴリ別に一括検索・閲覧できるWEBアプリケーションがあれば効率良く情報収集がきると考え、アプリケーション開発に至りました。
+
+</br>
+
+# 洗い出した要件
+https://docs.google.com/spreadsheets/d/13gDu58eVrEO-jr0fI-vqQSVdVAvc1jLbM71LSQz03uk/edit?usp=sharing
+
+</br>
+
+# 実装した機能についての画像やGIFおよびその説明
+
+## 新規投稿機能/投稿詳細ページ
+・入力フォームでは、添付画像のプレビューを確認できます。添付画像をキャンセルしたい場合は、プレビュー右下の「削除」を押します。
+
+・画像は最大5枚まで添付可能です。
+
+・投稿が完了するとTopページへ遷移します。
+
+・Topに一覧表示されている記事を押すと投稿詳細ページへ遷移します。
+
+[![Image from Gyazo](https://i.gyazo.com/a4f4b24b9d099ec8bfbff1c46f21050b.gif)](https://gyazo.com/a4f4b24b9d099ec8bfbff1c46f21050b)
+
+</br>
+
+## 投稿内容編集/削除機能
+・投稿詳細ページに表示されている「編集」ボタンを押すことで記事の内容を編集できます。
+
+・編集後は投稿詳細ページへ遷移します。
+
+[![Image from Gyazo](https://i.gyazo.com/e99e69ca1dacc3313c5d36e490b3c9fa.gif)](https://gyazo.com/e99e69ca1dacc3313c5d36e490b3c9fa)
+
+</br>
+
+・投稿詳細ページに表示されている「削除」ボタンを押すことで記事の内容を削除できます。
+
+・削除後はTopページへ遷移します。
+
+[![Image from Gyazo](https://i.gyazo.com/8fba2484b9cd4a36cf1e0aa971de4e3e.gif)](https://gyazo.com/8fba2484b9cd4a36cf1e0aa971de4e3e)
+
+</br>
+
+## ユーザー新規登録/ログイン機能
+・必須項目を入力することで、ユーザー新規登録とアプリケーションへのログインができます。
+
+【ユーザー新規登録】
+
+[![Image from Gyazo](https://i.gyazo.com/e9325ccef0587924dd9b498f02492e3c.gif)](https://gyazo.com/e9325ccef0587924dd9b498f02492e3c)
+
+【ログイン】
+
+[![Image from Gyazo](https://i.gyazo.com/639b81f8a834774703721d4b458c0f6e.gif)](https://gyazo.com/639b81f8a834774703721d4b458c0f6e)
+
+</br>
+
+## ユーザーマイページ機能（ユーザー編集機能）
+・ユーザ情報とユーザーが過去に投稿した記事が一覧表示されます。
+
+・「編集する」ボタンを押すことで、ユーザー情報を編集することができます。
+
+[![Image from Gyazo](https://i.gyazo.com/313f054efe8cdbb646af043ba7ccc58f.gif)](https://gyazo.com/313f054efe8cdbb646af043ba7ccc58f)
+
+</br>
+
+## いいね機能
+・詳細ページに設置の「いいね（ハート）」ボタンを押すと、投稿へいいねができます。
+
+・いいねを外したい場合は、再度「いいね（ハート）」ボタンを押します。
+
+[![Image from Gyazo](https://i.gyazo.com/46133aa7edf3b593b86beadc44a0e95a.gif)](https://gyazo.com/46133aa7edf3b593b86beadc44a0e95a)
+
+</br>
+
+## コメント機能
+・詳細ページに設置のコメン投稿フォームへコメントを入力し「コメントする」ボタンを押すと、コメントが投稿されます。
+
+・コメント一覧に表示されている「コメントの投稿者名」を押すと、コメント投稿者のユーザーページへ遷移します。
+
+[![Image from Gyazo](https://i.gyazo.com/92f8bb7c1c16e1f0de65698db025a140.gif)](https://gyazo.com/92f8bb7c1c16e1f0de65698db025a140)
+
+</br>
+
+## ユーザーフォロー機能
+・投稿詳細ページに表示されている投稿者名を押すと、投稿者のユーザーページへ遷移します。
+
+・遷移先ユーザーページにある「フォローする」ボタンを押すと、該当ユーザーをフォローすることができます。フォローを外したい場合は「フォロー中」ボタンを押します。
 
 
-## likesテーブル
 
-| Colum | Type       | Options                        |
-| ----- | ---------- | ------------------------------ |
-| user  | references | null: false, foreign_key: true |
-| post  | references | null: false, foreign_key: true |
+## 投稿記事検索機能
+・投稿された記事を各項目別に検索、表示することができます。
 
-## Associations
-belongs_to: user
-belongs_to: post
+・1項目だけでなく、複数項目を選択して検索することができます。
+
+・検索項目へ何も入力せずに「検索」ボタンを押した場合は、全ての投稿記事が一覧表示されます。
+
+・Top画面の検索フォームからは「タイトル」のみ検索が可能です。ヘッダーの「SEARCH」ボタンから検索画面へ遷移することで、詳細検索が可能となります。
+
+【Top画面検索フォーム】
+
+[![Image from Gyazo](https://i.gyazo.com/d6b5a7564a35dc0b9b0955dff143fe4e.gif)](https://gyazo.com/d6b5a7564a35dc0b9b0955dff143fe4e)
+
+【検索画面】
+
+[![Image from Gyazo](https://i.gyazo.com/46bbd9fcf69cd4b86f55a79dd3179d14.gif)](https://gyazo.com/46bbd9fcf69cd4b86f55a79dd3179d14)
 
 
-## tagsテーブル
 
-| Colum    | Type   | Options                       |
-| -------- | ------ | ----------------------------- |
-| tag_name | string | null: false, uniqueness: true |
 
-## Associations
-has_many: post_tag_relations
-has_many: posts
+</br>
 
-## post_tag_relationsテーブル
+# 実装予定機能
 
-| Colum | Type       | Options                        |
-| ----- | ---------- | ------------------------------ |
-| post  | references | null: false, foreign_key: true |
-| tag   | references | null: false, foreign_key: true |
+・Topに投稿記事一覧とは別に、ランキング形式（閲覧数が多い順、いいねが多い順等）で2〜3件程ピックアップした記事を表示させる予定です。
 
-## Associations
-belongs_to: post
-belongs_to: tag
+・マイページに「フォロー中」と「フォロワー」それぞれ該当のユーザーを一覧表示させる機能。
 
+（一覧に表示されているユーザー名を押すことで該当ユーザーページへ遷移ができる機能を併せて実装予定です）
+
+・投稿記事をお気に入りとして保存できる機能。
+
+（お気に入り保存した記事はマイページ経由でいつでも閲覧ができる予定です）
+
+</br>
+
+# データベース設計
+
+[![Image from Gyazo](https://i.gyazo.com/1fd70f69ca321f621b3a8afb0eb2f40b.png)](https://gyazo.com/1fd70f69ca321f621b3a8afb0eb2f40b)
+
+</br>
+
+# 画面遷移図
+
+[![Image from Gyazo](https://i.gyazo.com/15e7e426881d6c30fa50c3549bfcee05.png)](https://gyazo.com/15e7e426881d6c30fa50c3549bfcee05)
+
+</br>
+
+# 開発環境
+
+・フロントエンド
+
+・バックエンド
+
+・インフラ
+
+・テスト
+
+・テキストエディタ
+
+・タスク管理
+
+</br>
+
+# ローカルでの動作方法
+
+以下のコマンドを順に実行
+
+% git clone https://github.com/MAYUMITAKEDA/original38838.git
+
+% cd original38838
+
+% bundle install
+
+% yarn install
+
+</br>
+
+#  工夫したポイント
+
+・検索項目を細かく設け、ユーザーが知りたい情報を一括取得できるようにした点。
+
+・画像が1枚のみでは閲覧者側のイメージがつきずらいと考え、画像を複数枚投稿、閲覧できるように実装した点。
+
+・いいね機能とコメント機能を非同期通信化した点。
+
+・ユーザー間同士のコミュニケーションを促進するために、「いいね」「コメント」「フォロー」と3つの機能を実装した点。
