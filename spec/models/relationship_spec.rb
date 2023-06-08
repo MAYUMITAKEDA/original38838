@@ -7,20 +7,20 @@ RSpec.describe Relationship, type: :model do
     @relationship = FactoryBot.build(:relationship, following: user1, follower: user2)
   end
 
-  describe "ユーザーフォロー機能" do
-    context "フォローできるとき" do
-      it "フォロー申請する側の値(following_id)とフォローされる側の値（followed_id）が存在するとき" do
+  describe 'ユーザーフォロー機能' do
+    context 'フォローできるとき' do
+      it 'フォロー申請する側の値(following_id)とフォローされる側の値（followed_id）が存在するとき' do
         expect(@relationship).to be_valid
       end
     end
 
-    context "フォローできないとき" do
-      it "フォロー申請する側の値（following_id）がなければフォローできない" do
+    context 'フォローできないとき' do
+      it 'フォロー申請する側の値（following_id）がなければフォローできない' do
         @relationship.following_id = nil
         @relationship.valid?
         expect(@relationship.errors.full_messages).to include('Following must exist')
       end
-      it "フォローされる側の値（followed_is）がなければフォローできない" do
+      it 'フォローされる側の値（followed_is）がなければフォローできない' do
         @relationship.follower_id = nil
         @relationship.valid?
         expect(@relationship.errors.full_messages).to include('Follower must exist')
