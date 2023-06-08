@@ -158,7 +158,9 @@ https://docs.google.com/spreadsheets/d/13gDu58eVrEO-jr0fI-vqQSVdVAvc1jLbM71LSQz0
 
 ・遷移先ユーザーページにある「フォローする」ボタンを押すと、該当ユーザーをフォローすることができます。フォローを外したい場合は「フォロー中」ボタンを押します。
 
+[![Image from Gyazo](https://i.gyazo.com/4d9dbec0090d28e080f985ce3a46fc6b.gif)](https://gyazo.com/4d9dbec0090d28e080f985ce3a46fc6b)
 
+</br>
 
 ## 投稿記事検索機能
 ・投稿された記事を各項目別に検索、表示することができます。
