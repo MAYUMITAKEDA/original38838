@@ -1,14 +1,13 @@
 /**セカンドヘッダー**/
 .header_contents{
   background-image: url("/images/image9.jpg");
-  background-repeat: no-repeat;
   background-size: cover;
-  height: 600px;
-  min-width: 100vw;
+  height: 85vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding-top: 30px;
 }
 
 .subtitle {
@@ -34,18 +33,12 @@
 /**検索バー**/
 .search-bar {
   text-align: center;
-  width: 800px;
   height: auto;
   margin-top: 20px;
 }
 
-.top-search-form {
-  width: 800px;
-  padding-bottom: 0;
-}
-
 .top-input-box {
-  width: 600px;
+  width: 40vw;
   height: 30px;
   border-radius: 5px;
   border: solid 1px;
@@ -53,7 +46,7 @@
 }
 
 .top-search-send {
-  width: 200px;
+  width: 20vw;
   margin-top: 30px;
 }
 
@@ -63,15 +56,21 @@
 
 /**投稿一覧**/
 .posts_main {
+  height: auto;
   background-color: #e6f0f0;
-  height: 100%;
 }
 
 .posts_lists {
+  width: 100vw;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  gap: 10px;
   padding: 50px 0;
+}
+
+@media (max-width: 768px) {
+  .posts_lists {
+    grid-template-columns: 1fr;
+  }
 }
 
 .post_list {
