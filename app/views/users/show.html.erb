@@ -43,8 +43,11 @@
           <p class="user_post_title">タイトル：
           <%= link_to post.title, post_path(post.id) %>
           </p>
-          <p class="user_post_category">カテゴリー：
+          <p class="user_post_category">カテゴリ：
           <%= post.category.name %>
+          </p>
+          <p class="user_post_title">予　算　：
+          <%= post.budget %>円
           </p>
           <% end %>
           <p class="user_post_created_at">投稿日：
