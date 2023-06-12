@@ -57,15 +57,23 @@
 
 /**検索結果表示**/
 .search_main {
-  background-color: #e6f0f0;
+  width: 100vw;
   height: 100%;
+  background-color: #e6f0f0;
 }
 
 .search-lists {
+  width: 100vw;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 10px;
   padding-top: 50px 0;
+}
+
+@media (max-width: 768px) {
+  .search-lists {
+    grid-template-columns: 1fr;
+  }
 }
 
 .search-result-list {
@@ -83,7 +91,7 @@
 }
 
 .posted_list_text {
-  width: 300px;
+  width: 300px;  
   margin: auto;
   text-align: left;
 }
