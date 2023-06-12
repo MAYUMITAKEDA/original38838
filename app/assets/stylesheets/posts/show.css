@@ -1,6 +1,6 @@
 .post_show {
+  width: 100vw;
   background-color: #bce5e7;
-  min-width: 100vw;
 }
 
 .post_shows {
@@ -46,7 +46,7 @@ background-color: antiquewhite;
 
 /**投稿詳細メイン**/
 .post_shows_main {
-  width: 1100px;
+  width: 70vw;
   height: auto;
   display: flex;
   justify-content: center;
@@ -58,14 +58,15 @@ background-color: antiquewhite;
 
 /**画像**/
 .other-images {
-  width: 400px;
+  width: 25vw;
   display: flex;
   overflow-x: scroll;
 }
 
 .post-show-img {
-  width: 400px;
-  height: 400px;
+  width: 100%;
+  max-width:400px;
+  height: auto;
   object-fit: cover;
   margin: auto;
   margin-left: 50px;
@@ -108,7 +109,6 @@ background-color: antiquewhite;
 
 /**コメント機能**/
 .comment-contents {
-  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -121,7 +121,7 @@ background-color: antiquewhite;
 
 .comment-text{
   display: block;
-  width: 400px;
+  width: 30vw;
   height: 100px;
   margin-top: 20px;
   resize: none;
@@ -154,7 +154,7 @@ flex-direction: column;
 }
 
 .comments-result {
-  width: 400px;
+  width: 30vw;
   height: 100px;
   margin-top: 10px;
   padding: 10px 30px;
